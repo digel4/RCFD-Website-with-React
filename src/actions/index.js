@@ -37,6 +37,6 @@ import {
 
   export const fetchEvent = (id) => async dispatch => {
     const response = await events.get(`/events/${id}`);
-
+    console.log(response.data)
     dispatch({ type: FETCH_EVENT, payload: response.data });
   };

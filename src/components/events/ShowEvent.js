@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchEvent } from '../../actions';
 import ShowEventDesc from './ShowEventDesc';
+const parse = require('html-react-parser');
+// {props.selectedEvent.description}
 
 const ShowEvent = (props) => {
     const { id } = useParams()
@@ -53,7 +55,7 @@ const ShowEvent = (props) => {
                         </span>
 		            </div>
                     <div className="d-flex flex-column w-70 m-4 ">
-                        <div id="description" className="sun-editor-editable"> {props.selectedEvent.description} </div>
+                        <div id="description"> {parse(props.selectedEvent.description)} </div>
                             <div className="w-90 m-auto">
                                 <div className="d-flex flex-column ">
                                     <div className="d-flex flex-row p-3 justify-content-center" style={{ backgroundColor: "#2E8B57" }}>

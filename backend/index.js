@@ -1,13 +1,18 @@
 const express = require("express"),
       app = express(),
       body = require("body-parser"),
+	  cookieParser = require("cookie-parser")
       mongoose = require("mongoose"),
       passport = require("passport"),
       LocalStrategy = require("passport-local"),
       methodOverride = require("method-override"),
       Event = require("./models/event"),
-      User           = require("./models/user");
+      Admin           = require("./models/admin");
 	  const cors = require("cors");
+const admin = require("./models/admin");
+
+const JwtStrategy = require("passport-jwt").Strategy,
+  ExtractJwt = require("passport-jwt").ExtractJwt
 
       //useCreateIndex: true
 
@@ -22,14 +27,56 @@ mongoose.connect('mongodb+srv://admin:hello@cluster0.e4jqp.mongodb.net/rcf-d?ret
 
 
 app.use(body.urlencoded({limit: '10mb',extended: true}));
-app.set("view engine", "ejs");
+app.use(cookieParser(process.env.COOKIE_SECRET))
+
+
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/jHtmlArea"));
 app.use(methodOverride("_method"));
-app.use(cors());
+
+if (process.env.NODE_ENV !== "production") {
+	// Load environment variables from .env file in non prod environments
+	require("dotenv").config()
+  }
+
+require("./strategies/JwtStrategy")
+require("./strategies/LocalStrategy")
+require("./authenticate")
+
+const adminRouter = require("./routes/adminRoutes")
+
+// Add the client URL to the CORS policy
+
+const whitelist = process.env.WHITELISTED_DOMAINS
+  ? process.env.WHITELISTED_DOMAINS.split(",")
+  : []
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error("Not allowed by CORS"))
+    }
+  },
+
+  credentials: true,
+}
+
+app.use(cors(corsOptions))
+
+app.use(passport.initialize())
+
+// app.use("/admin", adminRouter)
 
 
 
+app.get("/madeup2", (req, res) => {
+    res.send("app is working!")
+})
+// app.get("/", function (req, res) {
+//   res.send({ status: "success" })
+// })
 //==============================
 // PASSPORT CONFIGURATION
 //==============================
@@ -46,11 +93,7 @@ app.use(passport.session());
 
 // passport.use(new LocalStrategy(User.authenticate())); //this coresponds to the middleware used later on on login
 
-passport.use('local', new LocalStrategy(User.authenticate()));
 
-passport.serializeUser(User.serializeUser());
-
-passport.deserializeUser(User.deserializeUser());
 
 // app.use( (req, res, next) => {
 // 	res.locals.currentUser = req.user;
@@ -60,8 +103,11 @@ passport.deserializeUser(User.deserializeUser());
 // });
 
 
+
 app.get("/", (req, res) => {
+	console.log("hello from main")
     res.send("app is working!")
+	
 })
 // app.get("/events", (req, res) => {
 //     res.send("You have hit events")
@@ -112,6 +158,15 @@ app.get("/pastevents", (req, res) => {
 		}
 	})
 });
+app.get("/madeup", (req, res) => {
+	// Verify that first name is not empty
+	// if (req.body.firstName === "hello") {
+	//   res.statusCode = 500
+	//   res.send("success!")
+	// }
+	console.log("hello from post")
+	res.send("success!")
+})
 
 app.get("/events", (req, res) => {
 	// Get all events from DB
@@ -142,6 +197,8 @@ app.get("/events/:id", (req, res) => {
 	});
 });
 	
+
+
 
 
 

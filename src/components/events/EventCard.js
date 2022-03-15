@@ -17,7 +17,7 @@ const EventCard = (props) => {
                         {props.excerpt}
                     </p>
                     <p className="bodycopyb card-text text-center">
-                        <Link to={props.id}>
+                        <Link to={`/events/${props.id}`}>
                             See more
                         </Link>
                     </p>
