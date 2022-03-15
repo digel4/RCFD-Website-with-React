@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 const EventCard = (props) => {
     return (
         <div>
@@ -16,9 +17,9 @@ const EventCard = (props) => {
                         {props.excerpt}
                     </p>
                     <p className="bodycopyb card-text text-center">
-                        <a href={props.id}>
+                        <Link to={props.id}>
                             See more
-                        </a>
+                        </Link>
                     </p>
                 </div>
             </div>

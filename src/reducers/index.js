@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
 
-import currEventReducer from './currEventReducer'
+import eventReducer from './eventReducer'
 import pastEventReducer from './pastEventReducer'
  
 export default combineReducers({
-    currEvents: currEventReducer,
-    pastEvents: pastEventReducer
+    events: eventReducer
 });

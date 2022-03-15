@@ -106,10 +106,7 @@ app.get("/pastevents", (req, res) => {
 			const sortedArray = allEvents.sort((a, b) => {
 				return new Date(a.longDate) - new Date(b.longDate);
 		});
-			console.log(sortedArray)
-			console.log("hello from backend")
-			console.log(`${typeof sortedArray}`)
-			console.log(typeof sortedArray)
+			console.log(sortedArray);
 			res.send(sortedArray)
 
 		}
@@ -128,6 +125,21 @@ app.get("/events", (req, res) => {
 			res.send(sortedArray);
 		}
 	})	
+});
+app.get("/events/:id", (req, res) => {
+	// Get all events from DB
+	Event.findById(req.params.id, (err, foundEvent) => {
+		if (err) {
+			console.log(err)
+		} else {
+			const longOption= {weekday: "long", day: '2-digit', month: 'long', year: "numeric"};
+			var longDate = new Date(foundEvent.longDate).toLocaleString('en-GB', longOption);
+				//render show template with that event
+			// res.render("events/show", {event: foundEvent, longDate:longDate});
+			// console.log(foundEvent)
+			res.send(foundEvent)
+		}
+	});
 });
 	
 

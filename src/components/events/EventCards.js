@@ -13,6 +13,7 @@ const EventCards = (props) => {
                 shortDate={event.shortDate}
                 excerpt={event.excerpt}
                 id={event._id}
+                key={event._id}
             />
         })
     }

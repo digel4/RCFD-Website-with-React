@@ -31,6 +31,12 @@ import {
 
   export const fetchPastEvents = () => async dispatch => {
     const response = await events.get('/pastevents');
-    console.log(`response.data is: ${typeof response.data}`)
+
     dispatch({ type: FETCH_PASTEVENTS, payload: response.data });
+  };
+
+  export const fetchEvent = (id) => async dispatch => {
+    const response = await events.get(`/events/${id}`);
+
+    dispatch({ type: FETCH_EVENT, payload: response.data });
   };

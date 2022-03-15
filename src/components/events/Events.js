@@ -31,7 +31,6 @@ const Events = (props) => {
         // pastEventsList();
         props.fetchCurrEvents();
         props.fetchPastEvents();
-        console.log(props)
      }, []);
      
 
@@ -85,12 +84,15 @@ const Events = (props) => {
 
 const mapStateToProps = state => {
     return {
-        currEvents: Object.values(state.currEvents),
-        pastEvents: Object.values(state.pastEvents)
+        currEvents: state.events.currEvents,
+        pastEvents: state.events.pastEvents
     }
 }
 
 export default connect(
     mapStateToProps,
-    { fetchCurrEvents, fetchPastEvents }
+    { 
+        fetchCurrEvents, 
+        fetchPastEvents 
+    }
 )(Events);
