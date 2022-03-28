@@ -11,7 +11,7 @@ const Session = new mongoose.Schema({
 
 
 const AdminSchema = new mongoose.Schema({
-	AdminName: {
+	adminName: {
 	  type: String,
 	  default: "",
 	},

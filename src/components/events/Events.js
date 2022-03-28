@@ -29,6 +29,8 @@ const Events = (props) => {
     useEffect( () => {
         // currEventsList();
         // pastEventsList();
+        console.log("props for useEffect are:")
+        console.log(props)
         props.fetchCurrEvents();
         props.fetchPastEvents();
      }, []);

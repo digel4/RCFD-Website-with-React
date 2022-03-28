@@ -1,5 +1,7 @@
 const passport = require("passport")
 const jwt = require("jsonwebtoken")
+const { useResolvedPath } = require("react-router-dom")
+const admin = require("./models/admin")
 const dev = process.env.NODE_ENV !== "production"
 
 exports.COOKIE_OPTIONS = {
@@ -11,6 +13,9 @@ exports.COOKIE_OPTIONS = {
   maxAge: eval(process.env.REFRESH_TOKEN_EXPIRY) * 1000,
   sameSite: "none",
 }
+
+console.log(typeof process.env.SESSION_EXPIRY)
+console.log(typeof eval(process.env.SESSION_EXPIRY))
 
 exports.getToken = admin => {
   return jwt.sign(admin, process.env.JWT_SECRET, {
@@ -24,5 +29,6 @@ exports.getRefreshToken = admin => {
   })
   return refreshToken
 }
+
 
 exports.verifyUser = passport.authenticate("jwt", { session: false })

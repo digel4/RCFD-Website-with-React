@@ -1,4 +1,5 @@
 import events from '../APIS/events';
+import axios from 'axios';
 import { 
     SIGN_IN, 
     SIGN_OUT, 
@@ -8,20 +9,38 @@ import {
     FETCH_PASTEVENTS,
     EDIT_EVENT,
     DELETE_EVENT,
+    ADMIN_LOGOUT,
+    ADMIN_LOGIN
   } from './types';
 
-//   export const signIn = (userId) => {
-//     return {
-//       type: SIGN_IN,
-//       payload: userId
-//     };
-//   };
+  // export const signIn = (userId) => {
+  //   return {
+  //     type: SIGN_IN,
+  //     payload: userId
+  //   };
+  // };
+
+  // export const signIn = (userName, password) => async dispatch => {
+  //   console.log("signIn triggered")
+  //   console.log(password)
+  //   // events.post('/login', { userName: "userName", password: "password" })
+  //   axios.post('http://localhost:3000/login', { userName: "hello"})
+  //   // const response = await events.post('/login', { userName: "userName", password: "password" })
+
+  //   // dispatch ({ type: ADMIN_LOGIN, payload: response.data })
+    
+  // };
+
+  export const signIn = (userName, password) => {
+    axios.post('http://localhost:3000/login', { userName: "hello"})
+  };
+
   
-//   export const signOut = () => {
-//     return {
-//       type: SIGN_OUT
-//     };
-//   };
+  export const signOut = () => {
+    return {
+      type: SIGN_OUT
+    };
+  };
 
   export const fetchCurrEvents = () => async dispatch => {
     const response = await events.get('/events');
@@ -37,6 +56,6 @@ import {
 
   export const fetchEvent = (id) => async dispatch => {
     const response = await events.get(`/events/${id}`);
-    console.log(response.data)
+
     dispatch({ type: FETCH_EVENT, payload: response.data });
   };

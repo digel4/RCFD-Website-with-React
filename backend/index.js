@@ -11,8 +11,13 @@ const express = require("express"),
 	  const cors = require("cors");
 const admin = require("./models/admin");
 
-const JwtStrategy = require("passport-jwt").Strategy,
-  ExtractJwt = require("passport-jwt").ExtractJwt
+
+if (process.env.NODE_ENV !== "production") {
+	// Load environment variables from .env file in non prod environments
+	require("dotenv").config()
+  }
+// const JwtStrategy = require("passport-jwt").Strategy,
+//   ExtractJwt = require("passport-jwt").ExtractJwt
 
       //useCreateIndex: true
 
@@ -24,20 +29,13 @@ mongoose.connect('mongodb+srv://admin:hello@cluster0.e4jqp.mongodb.net/rcf-d?ret
 	console.log('ERROR triggered:', err.message)
 });
 
-
-
 app.use(body.urlencoded({limit: '10mb',extended: true}));
+console.log(`cookie secret is ${process.env.COOKIE_SECRET} `)
 app.use(cookieParser(process.env.COOKIE_SECRET))
-
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/jHtmlArea"));
 app.use(methodOverride("_method"));
-
-if (process.env.NODE_ENV !== "production") {
-	// Load environment variables from .env file in non prod environments
-	require("dotenv").config()
-  }
 
 require("./strategies/JwtStrategy")
 require("./strategies/LocalStrategy")
@@ -45,11 +43,14 @@ require("./authenticate")
 
 const adminRouter = require("./routes/adminRoutes")
 
+
+
 // Add the client URL to the CORS policy
 
 const whitelist = process.env.WHITELISTED_DOMAINS
   ? process.env.WHITELISTED_DOMAINS.split(",")
   : []
+
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -69,7 +70,7 @@ app.use(passport.initialize())
 
 // app.use("/admin", adminRouter)
 
-
+app.use(adminRouter)
 
 app.get("/madeup2", (req, res) => {
     res.send("app is working!")
@@ -81,15 +82,15 @@ app.get("/madeup2", (req, res) => {
 // PASSPORT CONFIGURATION
 //==============================
 
-app.use(require("express-session")({
-	secret: "Once again Rusty wins cutest dog!",
-	resave: false,
-	saveUninitialized: false
-}));
+// app.use(require("express-session")({
+// 	secret: "Once again Rusty wins cutest dog!",
+// 	resave: false,
+// 	saveUninitialized: false
+// }));
 
-app.use(passport.initialize());
+// app.use(passport.initialize());
 
-app.use(passport.session());
+// app.use(passport.session());
 
 // passport.use(new LocalStrategy(User.authenticate())); //this coresponds to the middleware used later on on login
 

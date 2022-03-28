@@ -6,3 +6,5 @@ export const FETCH_PASTEVENTS = 'FETCH_PASTEVENTS';
 export const FETCH_EVENT = 'FETCH_EVENT';
 export const DELETE_EVENT = 'DELETE_EVENT';
 export const EDIT_EVENT = 'EDIT_EVENT';
+export const ADMIN_LOGOUT = 'ADMIN_LOGOUT';
+export const ADMIN_LOGIN = 'ADMIN_LOGIN';

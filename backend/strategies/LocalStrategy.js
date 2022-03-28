@@ -1,6 +1,6 @@
 const passport = require("passport")
 const LocalStrategy = require("passport-local").Strategy
-const Admin = require("../models/user")
+const Admin = require("../models/admin")
 
 
 //Called during login/sign up.

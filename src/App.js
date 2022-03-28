@@ -9,6 +9,7 @@ import Coaches from './components/Coaches';
 import ShowEvent from './components/events/ShowEvent';
 import './App.css';
 import history from './history';
+import Login from './components/admin/Login';
 
 
 
@@ -20,6 +21,7 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/" element={<Landing />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:id" element={<ShowEvent />} />
             <Route path="/pastevents" element={<Events />} />
