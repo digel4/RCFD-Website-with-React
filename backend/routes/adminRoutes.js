@@ -4,6 +4,7 @@ const Admin = require("../models/admin")
 const passport = require("passport")
 const jwt = require("jsonwebtoken")
 const cors = require("cors");
+const body = require("body-parser");
 
 
 const { getToken, COOKIE_OPTIONS, getRefreshToken, verifyUser } = require("../authenticate")
@@ -73,6 +74,8 @@ router.post("/login", (req, res, next) => {
   console.log("login post hit!")
   console.log(req.body)
   res.send("success")
+  // console.log(req.body.password)
+  // res.send("success")
   // Admin.findById(req.user._id).then(
   //   admin => {
   //     admin.refreshToken.push({ refreshToken })

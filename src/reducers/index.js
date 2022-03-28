@@ -7,5 +7,5 @@ import adminReducer from './adminReducer';
  
 export default combineReducers({
     events: eventReducer,
-    adminStatus: adminReducer
+    admin: adminReducer
 });

@@ -1,7 +1,7 @@
 const express = require("express"),
       app = express(),
       body = require("body-parser"),
-	  cookieParser = require("cookie-parser")
+	  cookieParser = require("cookie-parser"),
       mongoose = require("mongoose"),
       passport = require("passport"),
       LocalStrategy = require("passport-local"),
@@ -10,6 +10,7 @@ const express = require("express"),
       Admin           = require("./models/admin");
 	  const cors = require("cors");
 const admin = require("./models/admin");
+const adminRouter = require("./routes/adminRoutes")
 
 
 if (process.env.NODE_ENV !== "production") {
@@ -30,6 +31,7 @@ mongoose.connect('mongodb+srv://admin:hello@cluster0.e4jqp.mongodb.net/rcf-d?ret
 });
 
 app.use(body.urlencoded({limit: '10mb',extended: true}));
+app.use(body.json())
 console.log(`cookie secret is ${process.env.COOKIE_SECRET} `)
 app.use(cookieParser(process.env.COOKIE_SECRET))
 
@@ -41,7 +43,7 @@ require("./strategies/JwtStrategy")
 require("./strategies/LocalStrategy")
 require("./authenticate")
 
-const adminRouter = require("./routes/adminRoutes")
+
 
 
 
@@ -197,10 +199,31 @@ app.get("/events/:id", (req, res) => {
 		}
 	});
 });
+
+// app.post("/login", (req, res, next) => {
+// 	  // const token = getToken({ _id: req.user._id })
+// 	  // const refreshToken = getRefreshToken({ _id: req.user._id })
 	
-
-
-
+// 	  console.log("login post hit!")
+// 	  console.log(req.body)
+// 	  console.log(req.body.password)
+// 	  res.send("success")
+// 	  // Admin.findById(req.user._id).then(
+// 	  //   admin => {
+// 	  //     admin.refreshToken.push({ refreshToken })
+// 	  //     admin.save((err, user) => {
+// 	  //       if (err) {
+// 	  //         res.statusCode = 500
+// 	  //         res.send(err)
+// 	  //       } else {
+// 	  //         res.cookie("refreshToken", refreshToken, COOKIE_OPTIONS)
+// 	  //         res.send({ success: true, token })
+// 	  //       }
+// 	  //     })
+// 	  //   },
+// 	  //   err => next(err)
+// 	  // )
+// 	})
 
 
 app.listen(3001, () => {

@@ -1,7 +1,8 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import { Form, Field } from "react-final-form";
-import { signIn } from '../../actions';
+import { signIn, setAdminName, password, setPassword, error, submitting, setSubmitting } from '../../actions';
 import { connect } from 'react-redux';
+import axios from "axios";
 
 const Login = (props) => {
 
@@ -9,7 +10,8 @@ const Login = (props) => {
     e.preventDefault()
     console.log("formSubmit triggered")
     console.log(props)
-    props.signIn("userName", "password")
+    console.log(props.adminStatus.adminName)
+    props.signIn(props.adminStatus.adminName, props.adminStatus.adminPassword)
   }
 
   // return (
@@ -136,8 +138,8 @@ const Login = (props) => {
             name="userName"
             placeholder="User Name"
             type="text"
-            //value={userName}
-            // onChange={e => setUserName(e.target.value)}
+            value = { props.adminStatus.adminName }
+            onChange={e => props.setAdminName(e.target.value)}
           >
           </input>
         </div>
@@ -147,8 +149,8 @@ const Login = (props) => {
             placeholder="Password"
             type="password"
             name="password"
-            value="password"
-            // onChange={e => setPassword(e.target.value)}
+            value={props.adminStatus.adminPassword}
+            onChange={e => props.setPassword(e.target.value)}
           >
           </input>
         </div>
@@ -160,8 +162,7 @@ const Login = (props) => {
 
 const mapStateToProps = state => {
   return {
-      adminStatus: state.adminStatus
-      // pastEvents: state.events.pastEvents
+      adminStatus: { adminName: state.admin.adminName, adminPassword: state.admin.adminPassword }
   }
 }
 
@@ -175,9 +176,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { 
-      signIn, 
-  }
+  { signIn, setAdminName, setPassword }
 )(Login);
 
 // export default Login
