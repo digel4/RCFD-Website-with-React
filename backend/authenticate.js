@@ -8,14 +8,21 @@ exports.COOKIE_OPTIONS = {
   httpOnly: true,
   // Since localhost is not having https protocol,
   // secure cookies do not work correctly (in postman)
-  secure: !dev,
+  // secure: !dev,
+  secure: true,
   signed: true,
   maxAge: eval(process.env.REFRESH_TOKEN_EXPIRY) * 1000,
+  // maxAge: process.env,
   sameSite: "none",
 }
-
-console.log(typeof process.env.SESSION_EXPIRY)
-console.log(typeof eval(process.env.SESSION_EXPIRY))
+console.log("hello from autenticate")
+// console.log(process.env.SESSION_EXPIRY)
+// console.log(typeof process.env.SESSION_EXPIRY)
+// console.log(typeof eval(process.env.SESSION_EXPIRY))
+console.log(typeof process.env.REFRESH_TOKEN_EXPIRY)
+console.log(typeof eval(process.env.REFRESH_TOKEN_EXPIRY))
+console.log( eval(process.env.REFRESH_TOKEN_EXPIRY) * 1000)
+// console.log(process.env)
 
 exports.getToken = admin => {
   return jwt.sign(admin, process.env.JWT_SECRET, {

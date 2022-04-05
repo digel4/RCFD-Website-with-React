@@ -10,7 +10,7 @@ const express = require("express"),
       Admin           = require("./models/admin");
 	  const cors = require("cors");
 const admin = require("./models/admin");
-const adminRouter = require("./routes/adminRoutes")
+
 
 
 if (process.env.NODE_ENV !== "production") {
@@ -32,7 +32,7 @@ mongoose.connect('mongodb+srv://admin:hello@cluster0.e4jqp.mongodb.net/rcf-d?ret
 
 app.use(body.urlencoded({limit: '10mb',extended: true}));
 app.use(body.json())
-console.log(`cookie secret is ${process.env.COOKIE_SECRET} `)
+console.log(`cookie secret is ${process.env} `)
 app.use(cookieParser(process.env.COOKIE_SECRET))
 
 app.use(express.static(__dirname + "/public"));
@@ -71,7 +71,7 @@ app.use(cors(corsOptions))
 app.use(passport.initialize())
 
 // app.use("/admin", adminRouter)
-
+const adminRouter = require("./routes/adminRoutes")
 app.use(adminRouter)
 
 app.get("/madeup2", (req, res) => {

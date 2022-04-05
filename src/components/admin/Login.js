@@ -1,8 +1,9 @@
 import React, { useReducer, useEffect } from "react";
 import { Form, Field } from "react-final-form";
-import { signIn, setAdminName, password, setPassword, error, submitting, setSubmitting } from '../../actions';
+import { signIn, setAdminName, verifyUser, password,signOut, setPassword, error, submitting, setSubmitting } from '../../actions';
 import { connect } from 'react-redux';
 import axios from "axios";
+import events from "../../APIS/events";
 
 const Login = (props) => {
 
@@ -12,7 +13,56 @@ const Login = (props) => {
     console.log(props)
     console.log(props.adminStatus.adminName)
     props.signIn(props.adminStatus.adminName, props.adminStatus.adminPassword)
+    console.log("state is: ")
+    console.log(props.state)
   }
+
+  const showState = () => {
+    console.log("state is:")
+    console.log(props.state)
+  }
+  // const verifyUser = useCallback(() => {
+  //   API.post("/refreshToken")
+  //   .then(async response => {
+  //     if (response.ok) {
+  //       const data = await response.data
+  //       setUserContext(oldValues => {
+  //         return { ...oldValues, token: data.token }
+  //       })
+  //     } else {
+  //       setUserContext(oldValues => {
+  //         return { ...oldValues, token: null }
+  //       })
+  //     }
+  //     // call refreshToken every 5 minutes to renew the authentication token.
+  //     setTimeout(verifyUser, 5 * 60 * 1000)
+  //   })
+  // }, [setUserContext])
+  
+  // useEffect(() => {
+  //   verifyUser()
+  // }, [verifyUser])
+
+  // const verifyUser = () => {
+  //   console.log("hit verify user")
+  //   events.post("/refreshToken", {}, { withCredentials: true })
+  //   .then(async response => {
+  //     if (response.ok) {
+  //       const data = await response.data
+  //       console.log("data is:")
+  //       console.log(data)
+  //     } else {
+  //       console.log("something went wrong!")
+  //       // setUserContext(oldValues => {
+  //       //   return { ...oldValues, token: null }
+  //       //})
+  //     }
+  //     // call refreshToken every 5 minutes to renew the authentication token.
+  //     setTimeout(verifyUser, 5 * 60 * 1000)
+  //   })
+  // }
+  // , [setUserContext])
+  // }
 
   // return (
   //   <div>
@@ -156,13 +206,22 @@ const Login = (props) => {
         </div>
         <button className="btn btn-primary btn-block" type="submit" >Sign In</button>
       </form>
+
+      <button className="btn btn-primary btn-block" onClick={props.verifyUser}>verifyUser</button>
+      <button className="btn btn-primary btn-block" onClick={showState}>show state</button>
+      <button className="btn btn-primary btn-block" onClick={() => props.signOut(props.adminStatus.token)}>Log Out</button>
     </div>
   )
 }
 
+
+
+
 const mapStateToProps = state => {
   return {
-      adminStatus: { adminName: state.admin.adminName, adminPassword: state.admin.adminPassword }
+      // adminStatus: { adminName: state.admin.adminName, adminPassword: state.admin.adminPassword, token: state.admin.token },
+      adminStatus: { ...state.admin },
+      state
   }
 }
 
@@ -176,7 +235,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { signIn, setAdminName, setPassword }
+  { signIn, signOut, setAdminName, setPassword, verifyUser }
 )(Login);
 
 // export default Login

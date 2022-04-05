@@ -67,30 +67,34 @@ router.post("/signup", (req, res, next) => {
 //   )
 // })
 
-router.post("/login", (req, res, next) => {
-  // const token = getToken({ _id: req.user._id })
-  // const refreshToken = getRefreshToken({ _id: req.user._id })
-
-  console.log("login post hit!")
-  console.log(req.body)
-  res.send("success")
+router.post("/login", passport.authenticate("local"), (req, res, next) => {
+  // console.log(req)
+  const token = getToken({ _id: req.user._id })
+  const refreshToken = getRefreshToken({ _id: req.user._id })
+  console.log("token IS:")
+  console.log(token)
+  console.log("refreshToken IS:")
+  console.log(refreshToken)
+  // console.log("login post hit!")
+  // console.log(req.body)
+  // res.send("success")
   // console.log(req.body.password)
   // res.send("success")
-  // Admin.findById(req.user._id).then(
-  //   admin => {
-  //     admin.refreshToken.push({ refreshToken })
-  //     admin.save((err, user) => {
-  //       if (err) {
-  //         res.statusCode = 500
-  //         res.send(err)
-  //       } else {
-  //         res.cookie("refreshToken", refreshToken, COOKIE_OPTIONS)
-  //         res.send({ success: true, token })
-  //       }
-  //     })
-  //   },
-  //   err => next(err)
-  // )
+  Admin.findById(req.user._id).then(
+    admin => {
+      admin.refreshToken.push({ refreshToken })
+      admin.save((err, user) => {
+        if (err) {
+          res.statusCode = 500
+          res.send(err)
+        } else {
+          res.cookie("refreshToken", refreshToken, COOKIE_OPTIONS)
+          res.send({ success: true, token })
+        }
+      })
+    },
+    err => next(err)
+  )
 })
 
 // router.post("/login", passport.authenticate("local"), (req, res, next) => {
@@ -145,6 +149,14 @@ router.get("/login", (req, res, next) => {
 router.post("/refreshToken", (req, res, next) => {
   const { signedCookies = {} } = req
   const { refreshToken } = signedCookies
+
+  console.log("hit refreshToken")
+  // console.log("req:")
+  // console.log(req)
+  console.log("signedCookies:")
+  console.log(signedCookies)
+  console.log("refresshToken:")
+  console.log(refreshToken)
 
   if (refreshToken) {
     try {
@@ -201,9 +213,10 @@ router.get("/me", verifyUser, (req, res, next) => {
 })
 
 router.get("/logout", verifyUser, (req, res, next) => {
+
   const { signedCookies = {} } = req
   const { refreshToken } = signedCookies
-  Admin.findById(req.admin._id).then(
+  Admin.findById(req.user._id).then(
     admin => {
       const tokenIndex = admin.refreshToken.findIndex(
         item => item.refreshToken === refreshToken
@@ -226,6 +239,10 @@ router.get("/logout", verifyUser, (req, res, next) => {
     err => next(err)
   )
 })
+
+router.post(`/events/:id`)
+
+
 
 
 module.exports = router

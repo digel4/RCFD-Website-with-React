@@ -1,4 +1,5 @@
-import React from 'react';
+// import React from 'react';
+import { useCallback, useEffect } from "react"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/partials/Header';
 import Landing from './components/Landing';
@@ -7,13 +8,29 @@ import EmailSubscribe from './components/partials/EmailSubscribe';
 import Events from './components/events/Events';
 import Coaches from './components/Coaches';
 import ShowEvent from './components/events/ShowEvent';
+import NewEvent from './components/admin/NewEvent';
+import { verifyUser } from './actions';
 import './App.css';
 import history from './history';
 import Login from './components/admin/Login';
+import AdminHome from './components/admin/AdminHome';
+import { connect } from 'react-redux';
+// import API from '../../APIS/events';
 
 
 
-const App = () => {
+const App = (props) => {
+  console.log("app props:")
+  console.log(props)
+  const { verifyUser, token } = props
+  const verifyUserInApp = useCallback(() => {
+    verifyUser()
+  }, [verifyUser])
+
+  useEffect( () => {
+    verifyUserInApp()
+  }, [verifyUserInApp])
+
   return (
     <div>
       
@@ -26,6 +43,10 @@ const App = () => {
             <Route path="/events/:id" element={<ShowEvent />} />
             <Route path="/pastevents" element={<Events />} />
             <Route path="/coaches" element={<Coaches />} />
+            {/* Admin Routes */}
+            <Route path="/adminHome" element={ !token ? <Login /> : <AdminHome/> } />
+            <Route path="/createEvent" element={ !token ? <Login /> : <NewEvent/> } />
+
           </Routes>
         </BrowserRouter>
         <EmailSubscribe />
@@ -35,5 +56,19 @@ const App = () => {
   )
 }
 
+const mapStateToProps = state => {
+  return {
+      token: state.admin.token,
+      pastEvents: state.events.pastEvents,
+      state
 
-export default App;
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  { 
+      verifyUser
+  }
+)(App);
+

@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom';
+import EventCardButtons from './EventCardButtons';
+
 const EventCard = (props) => {
+    console.log("event card props are")
+    console.log(props)
     return (
         <div>
             <div className="card">
@@ -16,11 +20,7 @@ const EventCard = (props) => {
                     <p className="bodycopyb card-text text-center">
                         {props.excerpt}
                     </p>
-                    <p className="bodycopyb card-text text-center">
-                        <Link to={`/events/${props.id}`}>
-                            See more
-                        </Link>
-                    </p>
+                    <EventCardButtons id={props.id} token={props.token}/>
                 </div>
             </div>
         </div>

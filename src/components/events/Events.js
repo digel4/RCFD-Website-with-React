@@ -42,7 +42,7 @@ const Events = (props) => {
         if (!props.currEvents) {
             return 'loading'
         } else {
-            return <EventCards eventsList={props.currEvents} previousEvents={false}/>
+            return <EventCards token={props.token} eventsList={props.currEvents} previousEvents={false}/>
         }
     }
 
@@ -50,7 +50,7 @@ const Events = (props) => {
         if (!props.pastEvents) {
             return 'loading'
         } else {
-            return <EventCards eventsList={props.pastEvents} previousEvents={true} />
+            return <EventCards token={props.token} eventsList={props.pastEvents} previousEvents={true} />
         }
     }
     
@@ -87,7 +87,9 @@ const Events = (props) => {
 const mapStateToProps = state => {
     return {
         currEvents: state.events.currEvents,
-        pastEvents: state.events.pastEvents
+        pastEvents: state.events.pastEvents,
+        token: state.admin.token
+
     }
 }
 

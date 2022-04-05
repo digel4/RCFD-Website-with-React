@@ -44,13 +44,16 @@ const Header = () => {
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="nav-item active">
-                            <a className="nav-link h3b" href="/events"><strong>Events & Workshops</strong><span className="sr-only">(current)</span></a>
+                            {/* <a className="nav-link h3b" href="/events"><strong>Events & Workshops</strong><span className="sr-only">(current)</span></a> */}
+                            <li><Link to="/events" className="nav-link  h3b"><strong>Events & Workshops</strong><span className="sr-only">(current)</span></Link></li>
                         </li>
                         <li className="nav-item active">
-                            <a className="nav-link h3b" href="/coaches"><strong>Coaches</strong></a>
+                            {/* <a className="nav-link h3b" href="/coaches"><strong>Coaches</strong></a> */}
+                            <li><Link to="/coaches" className="nav-link  h3b"><strong>Coaches</strong></Link></li>
                         </li>
                         <li className="nav-item active">
-                            <a className="nav-link  h3b" href="/resources"><strong>Resources</strong></a>
+                            {/* <a className="nav-link  h3b" href="/resources"><strong>Resources</strong></a> */}
+                            <li><Link to="/resources" className="nav-link  h3b"><strong>Resources</strong></Link></li>
                         </li>
                         </ul>
                     </div>
