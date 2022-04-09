@@ -1,10 +1,11 @@
 import React,  { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import EventCards from './EventCards';
 import fetchEvents from '../../APIS/events';
 import { fetchCurrEvents } from '../../actions';
 import { fetchPastEvents } from '../../actions';
 import { connect } from 'react-redux';
+
 
 
 
@@ -37,6 +38,14 @@ const Events = (props) => {
      
 
     const { pathname } = useLocation();
+
+    const adminControlPanel = () => {
+        if(props.token) {
+            return (
+                <Link to="/admin/createEvent" className="btn btn-primary btn-block">Create Event</Link>
+            )
+        }
+    }
     
     const currEventsLoader = () => {
         if (!props.currEvents) {
@@ -74,6 +83,7 @@ const Events = (props) => {
         
         <div className="container">
         <div>
+            {adminControlPanel()}
             {eventsSelector()}
         </div>
 

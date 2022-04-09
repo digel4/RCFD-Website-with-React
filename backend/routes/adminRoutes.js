@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const Admin = require("../models/admin")
+const Event = require("../models/event")
 const passport = require("passport")
 const jwt = require("jsonwebtoken")
 const cors = require("cors");
@@ -121,7 +122,7 @@ router.post("/login", passport.authenticate("local"), (req, res, next) => {
 //   // )
 // })
 // passport.authenticate("local"),
-router.get("/login", (req, res, next) => {
+router.delete("/login", (req, res, next) => {
 
 
   // const token = getToken({ _id: req.user._id })
@@ -241,6 +242,102 @@ router.get("/logout", verifyUser, (req, res, next) => {
 })
 
 router.post(`/events/:id`)
+
+router.post('/admin/createEvent', verifyUser, (req, res) => {
+  console.log(req.body)
+  const shortOption= {day: '2-digit', month: 'short'}
+
+  const { name, image, desc, endTime, startTime, businessName, streetName, streetNumber, city, postcode, eventURL, excerpt } = req.body
+  
+	const longDate = req.body.date;
+	const shortDate = new Date(req.body.date).toLocaleString('en-GB', shortOption);
+
+	const newEvent = {name, longDate, shortDate, image, description: desc, endTime, startTime, businessName, streetNumber, streetName, city, postcode, eventURL, excerpt  };
+	console.log(newEvent)
+  // Create a new event and save to DB
+	Event.create(newEvent, (err, newlyCreated) => {
+		if (err) {
+			console.log(err)
+		} else {
+			//redirect back to events page
+			console.log(newlyCreated);
+			// res.redirect("/events");
+			console.log("added to database");
+		}
+	})
+
+})
+
+router.post('/admin/editEvent/:id', (req, res) => {
+  console.log(req.body)
+
+
+})
+
+router.delete('/admin/:id', (req, res) => {
+	// res.send("you have reached the delete route");
+  console.log("hit delte route")
+  console.log(req.params)
+	Event.findByIdAndRemove(req.params.id, (err) => {
+		if(err) {
+		console.log("failure")
+	} else {
+		console.log("success")
+	}
+	});
+});
+
+router.put("/admin/:id", (req,res) => {
+	//find and update the correct campround
+	const shortOption= {day: '2-digit', month: 'short'};
+  console.log(req.body)
+	
+	 Event.findByIdAndUpdate(req.params.id, req.body, (err) => {
+     //console.log(updatedEvent)
+		//  updatedEvent.shortDate = new Date(req.body.date).toLocaleString('en-GB', shortOption); 
+		//  updatedEvent.longDate = req.body.date;
+		//  console.log(`event body description is ${req.body.description}`)
+		//  updatedEvent.name = req.body.name;
+		//  updatedEvent.image = req.body.image;
+		//  updatedEvent.description = req.body.desc;
+		//  updatedEvent.endTime = req.body.endTime;
+		//  updatedEvent.startTime = req.body.startTime;
+		//  updatedEvent.businessName = req.body.businessName;
+		//  updatedEvent.streetNumber = req.body.streetNumber;
+		//  updatedEvent.streetName = req.body.streetName;
+		//  updatedEvent.city = req.body.city;
+		//  updatedEvent.postcode = req.body.postcode;
+		//  updatedEvent.eventURL = req.body.eventURL;
+		//  updatedEvent.excerpt = req.body.excerpt;
+		//  console.log(`Updated event body description is ${updatedEvent.description}`)
+		//  updatedEvent.save();
+		if(err) {
+			console.log(err)
+		} else {
+			console.log("success")
+		}
+	});
+});
+
+// const shortOption= {day: '2-digit', month: 'short'}
+
+//   const { name, image, desc, endTime, startTime, businessName, streetName, streetNumber, city, postcode, eventURL, excerpt } = req.body
+
+// 	const longDate = req.body.date;
+// 	const shortDate = new Date(req.body.date).toLocaleString('en-GB', shortOption);
+
+// 	const newEvent = {name, longDate, shortDate, image, desc, endTime, startTime, businessName, streetNumber, streetName, city, postcode, eventURL, excerpt  };
+// 	//Create a new event and save to DB
+// 	Event.create(newEvent, (err, newlyCreated) => {
+// 		if (err) {
+// 			console.log(err)
+// 		} else {
+// 			//redirect back to events page
+// 			console.log(newlyCreated);
+// 			// res.redirect("/events");
+// 			console.log("added to database");
+// 		}
+// 	})
 
 
 

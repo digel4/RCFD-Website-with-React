@@ -55,7 +55,9 @@ const ShowEvent = (props) => {
                         </span>
 		            </div>
                     <div className="d-flex flex-column w-70 m-4 ">
-                        <div id="description"> {parse(props.selectedEvent.description)} </div>
+                        <div id="description"> 
+                            {parse(props.selectedEvent.description)} 
+                        </div>
                             <div className="w-90 m-auto">
                                 <div className="d-flex flex-column ">
                                     <div className="d-flex flex-row p-3 justify-content-center" style={{ backgroundColor: "#2E8B57" }}>

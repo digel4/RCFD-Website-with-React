@@ -1,87 +1,114 @@
 import SunEditor from 'suneditor-react'
-import { createEvent, setBusinessName, setCity, setDate, setDescription, setEndTime, setEventURL, setExcerpt, setImage, setName, setPassword, setPostcode, setStartTime, setStreetNumber, setStreetName } from '../../actions'
+import { useRef, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { fetchEvent, editEvent, createEvent, setBusinessName, setCity, setDate, setDescription, setEndTime, setEventURL, setExcerpt, setImage, setName, setPassword, setPostcode, setStartTime, setStreetNumber, setStreetName } from '../../actions'
 import { connect } from 'react-redux';
-const NewEvent = (props) => {
+import 'suneditor/dist/css/suneditor.min.css'; 
+const EventForm = (props) => {
     // const editor = SUNEDITOR.create((document.getElementById('editor')),{
     //     // All of the plugins are loaded in the "window.SUNEDITOR" object in dist/suneditor.min.js file
     //     // Insert options
     //     // Language global object (default: en)
     //     lang: SUNEDITOR_LANG['en']
     //     });
-    console.log(props)
+    //console.log(props)
     const showState = () => {
         console.log("state is:")
         console.log(props.state)
     }
 
+    useEffect( () => {
+        if(props.selectedEvent) {
+            props.setBusinessName(props.selectedEvent.businessName); 
+            props.setCity(props.selectedEvent.city)
+            props.setDate(props.selectedEvent.longDate)
+            props.setDescription(props.selectedEvent.description)
+            props.setEndTime(props.selectedEvent.endTime)
+            props.setEventURL(props.selectedEvent.eventURL)
+            props.setExcerpt(props.selectedEvent.excerpt)
+            props.setImage(props.selectedEvent.image)
+            props.setName(props.selectedEvent.name)
+            props.setPostcode(props.selectedEvent.postcode)
+            props.setStartTime(props.selectedEvent.startTime)
+            props.setStreetNumber(props.selectedEvent.streetNumber)
+            props.setStreetName(props.selectedEvent.streetName)
+        }
+     }, []);
+
     // document.getElementById("form").addEventListener("submit", function() {
     //     editor.save()
     // });
-    const formSubmitHandler = e => {
-        e.preventDefault()
-        console.log("triggered form submit")
-        const { businessName,
-            city,
-            date,
-            description,
-            endTime,
-            eventURL,
-            excerpt,
-            image,
-            name,
-            postcode,
-            startTime,
-            streetNumber,
-            streetName} = props.eventInfo
-        // setBusinessName(props.eventInfo.businessName)
-        // setCity(props.eventInfo.city)
-        // setDate(props.eventInfo.date)
-        // setDescription(props.eventInfo.description)
-        // setEndTime(props.eventInfo.endTime)
-        // setEventURL(props.eventInfo.eventURL)
-        // setExcerpt(props.eventInfo.excerpt)
-        // setImage(props.eventInfo.image)
-        // setName(props.eventInfo.name)
-        // setPostcode(props.eventInfo.postcode)
-        // setStartTime(props.eventInfo.startTime)
-        // setStreetNumber(props.eventInfo.streetNumber)
-        // setStreetName(props.eventInfo.streetName)
-        const formValues = {
-            businessName,
-            city,
-            date,
-            description,
-            endTime,
-            eventURL,
-            excerpt,
-            image,
-            name,
-            postcode,
-            startTime,
-            streetNumber,
-            streetName
-        }
-        // props.createEvent(props.eventInfo.businessName,
-        //     props.eventInfo.city,
-        //     props.eventInfo.date,
-        //     props.eventInfo.description,
-        //     props.eventInfo.endTime,
-        //     props.eventInfo.eventURL,
-        //     props.eventInfo.excerpt,
-        //     props.eventInfo.image,
-        //     props.eventInfo.name,
-        //     props.eventInfo.postcode,
-        //     props.eventInfo.startTime,
-        //     props.eventInfo.streetNumber,
-        //     props.eventInfo.streetName)
-        props.createEvent(formValues)
-      }
+
+    const editor = useRef();
+
+    const getSunEditorInstance = (sunEditor) => {
+        editor.current = sunEditor;
+    };
+    // const formSubmitHandler = e => {
+    //     e.preventDefault()
+    //     console.log("triggered form submit")
+    //     const { businessName,
+    //         city,
+    //         date,
+    //         desc,
+    //         endTime,
+    //         eventURL,
+    //         excerpt,
+    //         image,
+    //         name,
+    //         postcode,
+    //         startTime,
+    //         streetNumber,
+    //         streetName} = props.eventInfo
+    //     // setBusinessName(props.eventInfo.businessName)
+    //     // setCity(props.eventInfo.city)
+    //     // setDate(props.eventInfo.date)
+    //     // setDescription(props.eventInfo.description)
+    //     // setEndTime(props.eventInfo.endTime)
+    //     // setEventURL(props.eventInfo.eventURL)
+    //     // setExcerpt(props.eventInfo.excerpt)
+    //     // setImage(props.eventInfo.image)
+    //     // setName(props.eventInfo.name)
+    //     // setPostcode(props.eventInfo.postcode)
+    //     // setStartTime(props.eventInfo.startTime)
+    //     // setStreetNumber(props.eventInfo.streetNumber)
+    //     // setStreetName(props.eventInfo.streetName)
+    //     const formValues = {
+    //         businessName,
+    //         city,
+    //         date,
+    //         desc,
+    //         endTime,
+    //         eventURL,
+    //         excerpt,
+    //         image,
+    //         name,
+    //         postcode,
+    //         startTime,
+    //         streetNumber,
+    //         streetName
+    //     }
+    //     // props.createEvent(props.eventInfo.businessName,
+    //     //     props.eventInfo.city,
+    //     //     props.eventInfo.date,
+    //     //     props.eventInfo.description,
+    //     //     props.eventInfo.endTime,
+    //     //     props.eventInfo.eventURL,
+    //     //     props.eventInfo.excerpt,
+    //     //     props.eventInfo.image,
+    //     //     props.eventInfo.name,
+    //     //     props.eventInfo.postcode,
+    //     //     props.eventInfo.startTime,
+    //     //     props.eventInfo.streetNumber,
+    //     //     props.eventInfo.streetName)
+    //     props.createEvent(formValues)
+    //   }
 
 
     return (
         // <p></p>
     <div className="container row" style={{ width: "80%", margin: "auto" }}>
-        <form id="form" action="/admin/new" onSubmit={formSubmitHandler}>
+        <form id="form" action="/admin/new" onSubmit={props.formSubmitHandler}>
             <h1>	
                 Create a new event
             </h1>
@@ -138,10 +165,19 @@ const NewEvent = (props) => {
             </h1>
             <div className="form-group">
                 <label>Event Description</label>
-                {/* <SunEditor name="description" value={props.eventInfo.description} onChange={e => props.setDescription(e.target.value)} setOptions={ {
-                    rows:10,
-                    cols:100
-                } }/> */}
+                <SunEditor 
+                    getSunEditorInstance={getSunEditorInstance}
+                    name="description" 
+                    // value = {props.eventInfo.description} 
+                    //onChange={e => props.setDescription(e.target.value)} 
+                    onChange={  (content) => props.setDescription(content) }
+                    //props.selectedEvent.description || 
+                    setContents={ props.eventInfo.description}
+                    onClick={(e) => {console.log("click")}}
+                    setOptions={ {
+                        rows:10,
+                        cols:100
+                } }/>
             </div>
             <div className="form-group">
                 <label>Event Excerpt</label>
@@ -150,9 +186,10 @@ const NewEvent = (props) => {
             <button type="submit" class="btn btn-primary btn-block">
                 Submit!
             </button>
-            <button className="btn btn-primary btn-block" onClick={showState}>show state</button>
+            
             <a href="/events">Back to Events</a>
         </form>
+        <button className="btn btn-primary btn-block" onClick={showState}>show state</button>
     </div>
 
     )
@@ -217,11 +254,13 @@ const NewEvent = (props) => {
 const mapStateToProps = state => {
     return {
         eventInfo: {...state.admin},
+        // selectedEvent: state.events.selectedEvent,
         state
     }
 }
 
 export default connect(
     mapStateToProps,
-    { createEvent, setBusinessName, setCity, setDate, setDescription, setEndTime, setEventURL, setExcerpt, setImage, setName, setPassword, setPostcode, setStartTime, setStreetNumber, setStreetName }
-    )(NewEvent);
+    { editEvent, createEvent, setBusinessName, setCity, setDate, setDescription, setEndTime, setEventURL, setExcerpt, setImage, setName, setPassword, setPostcode, setStartTime, setStreetNumber, setStreetName }
+    )(EventForm);
+

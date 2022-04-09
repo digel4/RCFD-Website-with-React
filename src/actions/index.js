@@ -43,13 +43,13 @@ import {
   };
 
   export const verifyUser = () => async dispatch => {
-    console.log("verifyUser triggered")
+    //console.log("verifyUser triggered")
       const response = await events.post("/refreshToken", {}, { withCredentials: true })
-      console.log(response.data)
+      //console.log(response.data)
       if (response.statusText === "OK") {
         const data =  response.data
-        console.log("data is:")
-        console.log(response.data)
+        //console.log("data is:")
+        //console.log(response.data)
         dispatch ({ type: "VERIFY_USER", payload: data })
       } else {
           console.log("something went wrong!")
@@ -148,7 +148,7 @@ import {
   }
 
   export const editEvent = (id, formValues) => async dispatch => {
-    const response = await events.patch(`/events/${id}`, {...formValues});
+    const response = await events.put(`/admin/${id}`, {...formValues});
 
     dispatch({ type: EDIT_EVENT, payload: response.data })
   }
@@ -157,7 +157,7 @@ import {
     console.log("triggered createEvent")
     console.log(formValues)
 
-    const response = await events.post('/events', {...formValues});
+    const response = await events.post('/admin/createEvent', {...formValues});
 
     dispatch({ type: CREATE_EVENT, payload: response.data })
   }
@@ -168,15 +168,16 @@ import {
 
 
 
-  export const setDescription = (desc) => async dispatch => {
+  export const setDescription = (description) => async dispatch => {
+    console.log("setDescription hit!")
 
-    dispatch({ type: "SET_DESCRIPTION",  payload: {desc} } )
+    dispatch({ type: "SET_DESCRIPTION",  payload: {description} } )
   }
 
 
-  export const setExcerpt = (exercpt) => async dispatch => {
-
-    dispatch({ type: "SET_EXCERPT" ,  payload: {exercpt} } )
+  export const setExcerpt = (excerpt) => async dispatch => {
+    console.log("set excerpt hip")
+    dispatch({ type: "SET_EXCERPT" ,  payload: {excerpt} } )
   }
 
 
@@ -238,7 +239,9 @@ import {
   }
 
 
-  export const setDate = (date) => async dispatch => {
+  export const setDate = (rawDate) => async dispatch => {
+
+    const date = rawDate.slice(0, 10)
 
     dispatch({ type: "SET_DATE" ,  payload: {date} } )
   }

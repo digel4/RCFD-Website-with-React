@@ -20,8 +20,8 @@ const eventReducer = (state = {}, action) => {
       // mpayKeys creates a new object from an array of object using the second param as the new key
         return { ...state, pastEvents: action.payload };
     case FETCH_EVENT:
-      console.log("payload for FETCH_EVENT is:" + action.payload)
-      console.log(action.payload)
+      // console.log("payload for FETCH_EVENT is:" + action.payload)
+      // console.log(action.payload)
       return { ...state, selectedEvent: action.payload  };
     case CREATE_EVENT:
       return { ...state, [action.payload.id]: action.payload  };

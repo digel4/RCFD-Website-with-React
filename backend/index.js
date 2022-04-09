@@ -180,6 +180,7 @@ app.get("/events", (req, res) => {
 			const sortedArray = allEvents.sort((a, b) => {
       			return new Date(a.longDate) - new Date(b.longDate);
 		});
+			console.log("sending Sorted Array")
 			res.send(sortedArray);
 		}
 	})	

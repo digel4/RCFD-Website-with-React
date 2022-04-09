@@ -18,13 +18,13 @@ const adminReducer = (state = {}, action) => {
       // mpayKeys creates a new object from an array of object using the second param as the new key
         return { ...state,  ...action.payload };
     case "SET_ADMIN_NAME":
-      console.log("hit admin name reducer")
+      // console.log("hit admin name reducer")
       return { ...state, ...action.payload};
     case "SET_ADMIN_PASSWORD":
       return { ...state, ...action.payload};
     case "VERIFY_USER":
-      console.log("verifyUser Reducer Payload is:")
-      console.log(action.payload)
+      // console.log("verifyUser Reducer Payload is:")
+      // console.log(action.payload)
       return {...state, ...action.payload}
 
 
@@ -40,11 +40,11 @@ const adminReducer = (state = {}, action) => {
       return {...state, ...action.payload}
     case "SET_END_TIME":
       return {...state, ...action.payload}
-    case "SET_SET_START_TIME":
+    case "SET_START_TIME":
       return {...state, ...action.payload}
     case "SET_EVENT_URL":
       return {...state, ...action.payload}
-    case "SET_SET_EXCERPT":
+    case "SET_EXCERPT":
       return {...state, ...action.payload}
     case "SET_IMAGE":
       return {...state, ...action.payload}

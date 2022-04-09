@@ -8,7 +8,8 @@ import EmailSubscribe from './components/partials/EmailSubscribe';
 import Events from './components/events/Events';
 import Coaches from './components/Coaches';
 import ShowEvent from './components/events/ShowEvent';
-import NewEvent from './components/admin/NewEvent';
+import EditEvent from './components/admin/EditEvent';
+import CreateEvent from './components/admin/CreateEvent';
 import { verifyUser } from './actions';
 import './App.css';
 import history from './history';
@@ -20,8 +21,8 @@ import { connect } from 'react-redux';
 
 
 const App = (props) => {
-  console.log("app props:")
-  console.log(props)
+  // console.log("app props:")
+  // console.log(props)
   const { verifyUser, token } = props
   const verifyUserInApp = useCallback(() => {
     verifyUser()
@@ -45,7 +46,8 @@ const App = (props) => {
             <Route path="/coaches" element={<Coaches />} />
             {/* Admin Routes */}
             <Route path="/adminHome" element={ !token ? <Login /> : <AdminHome/> } />
-            <Route path="/createEvent" element={ !token ? <Login /> : <NewEvent/> } />
+            <Route path="/admin/createEvent" element={ !token ? <Login /> : <CreateEvent/> } />
+            <Route path="/admin/editEvent/:id" element={ !token ? <Login /> : <EditEvent/> } />
 
           </Routes>
         </BrowserRouter>
