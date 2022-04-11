@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import events from '../../APIS/events';
+import events from '../../../APIS/events';
 
 
 const EventCardButtons = (props) => {

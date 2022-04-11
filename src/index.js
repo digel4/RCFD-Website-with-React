@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { adminProvider } from "./context/AdminContext"
 import reportWebVitals from './reportWebVitals';
 
 import reduxThunk from 'redux-thunk';

@@ -1,13 +1,11 @@
-import EventCard from "./EventCard";
+import IndividualEventCard from "./IndividualEventCard";
 import { Link } from 'react-router-dom';
 
-const EventCards = (props) => {
-    // console.log(props.previousEvents)
-
+const ShowAllEventCards = (props) => {
 
     const renderList = () => {
         return props.eventsList.map( event => {
-            return <EventCard 
+            return <IndividualEventCard 
                 name={event.name}
                 image={event.image}
                 shortDate={event.shortDate}
@@ -56,4 +54,4 @@ const EventCards = (props) => {
     )
 }
 
-export default EventCards;
+export default ShowAllEventCards;
