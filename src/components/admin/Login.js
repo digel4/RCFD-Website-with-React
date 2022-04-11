@@ -2,11 +2,16 @@ import React from "react";
 import { adminLogin, adminLogout, setAdminName, verifyUser, setPassword } from '../../actions';
 import { connect } from 'react-redux';
 
+import  { useNavigate } from 'react-router-dom';
+
 const Login = (props) => {
+
+  const navigate = useNavigate();
 
   const formSubmitHandler = e => {
     e.preventDefault()
     props.adminLogin(props.adminStatus.adminName, props.adminStatus.adminPassword)
+    navigate("/events", { replace: true });
   }
 
   const showState = () => {

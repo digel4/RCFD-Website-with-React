@@ -3,10 +3,13 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchEvent, editEvent } from '../../actions'
 import { connect } from 'react-redux';
+import  { useNavigate } from 'react-router-dom';
 
 const EditEvent = (props) => {
-    const { id } = useParams()
+    const  {eventInfo, editEvent, fetchEvent, selectedEvent } = props;
 
+    const { id } = useParams()
+    const navigate = useNavigate()
     const formSubmitHandler = e => {
         e.preventDefault()
         console.log("triggered form submit")
@@ -22,7 +25,8 @@ const EditEvent = (props) => {
             postcode,
             startTime,
             streetNumber,
-            streetName} = props.eventInfo
+            streetName} = eventInfo;
+
         const formValues = {
             businessName,
             city,
@@ -38,19 +42,20 @@ const EditEvent = (props) => {
             streetNumber,
             streetName
         }
-        props.editEvent(id, formValues)
+        editEvent(id, formValues);
+        navigate("/events", { replace:true })
       }
 
 
 
 
     useEffect( () => {
-        props.fetchEvent(id)
-     }, []);
+        fetchEvent(id)
+     }, [fetchEvent, id]);
 
-    if (props.selectedEvent) { 
+    if (selectedEvent) { 
         return (
-            <EventForm formSubmitHandler={formSubmitHandler} selectedEvent={ props.selectedEvent } />
+            <EventForm formSubmitHandler={formSubmitHandler} selectedEvent={ selectedEvent } />
         )
     } else {
         return (
