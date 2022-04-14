@@ -1,0 +1,13 @@
+@use '../abstracts/variables' as var;
+
+.btn-primary {
+	color: white;
+	background-color: var.$primary-orange;
+    border-color: var.$primary-orange;
+}
+
+.btn-secondary {
+	color: white;
+	background-color: var.$secondary-orange;
+    border-color: var.$secondary-orange;
+}

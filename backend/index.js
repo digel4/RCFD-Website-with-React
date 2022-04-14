@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== "production") {
 
 // To connect with your mongoDB database
 console.log("attempting to connect to DB")
-mongoose.connect('mongodb+srv://admin:hello@cluster0.e4jqp.mongodb.net/rcf-d?retryWrites=true&w=majority', { useNewUrlParser: true }).then(() => {
+mongoose.connect(MONGO_DB_CONNECTION_STRING, { useNewUrlParser: true }).then(() => {
 	console.log("connected to DB");
 }).catch(err => {
 	console.log('ERROR triggered:', err.message)
@@ -63,7 +63,8 @@ app.use(passport.initialize())
 const adminAuthRouter = require("./routes/adminAuthRoutes")
 const adminCRUDRouter = require("./routes/adminCRUDRoutes")
 const eventsRouter = require("./routes/eventsRoutes")
-app.use(adminAuthRouter, adminCRUDRouter, eventsRouter )
+const mailChimpRoutes = require("./routes/mailChimpRoutes")
+app.use(adminAuthRouter, adminCRUDRouter, eventsRouter, mailChimpRoutes )
 
 app.listen(3001, () => {
 	console.log("server listening on port 3001");

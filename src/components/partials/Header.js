@@ -28,7 +28,7 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container">
                     <a className="navbar-brand" href="/">
-                        <img src="/images/RCF-logo.svg" className="img-fluid navbar-brand" alt="RCF logo" style={{height:"5rem",width: "5rem"}}></img></a>
+                        <img src="/images/RCF-logo.svg" className="navbar-brand" alt="RCF logo" style={{height:"5rem",width: "5rem"}}></img></a>
                         <a href="https://bighouse.org.uk/"><img src="/images/bh-pink.svg" className="navbar-brand" alt="Big House logo" style={{height:"6rem",width: "6rem"}}></img></a>
                         <a href="/"><img src="/images/eu-only.svg" className="navbar-brand" alt="Eurpean Union logo" style={{height:"6rem",width: "6rem"}}></img></a>
                         <a href="https://www.midlandsengine.org/"><img src="/images/me-blue.svg" className="navbar-brand" alt="Midlands Engine logo" style={{height:"6rem",width: "6rem"}}></img></a>

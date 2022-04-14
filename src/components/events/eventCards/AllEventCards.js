@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 
 const ShowAllEventCards = (props) => {
 
+    const { eventsList, previousEvents } = props;
+
     const renderList = () => {
-        return props.eventsList.map( event => {
+        return eventsList.map( event => {
             return <IndividualEventCard 
                 name={event.name}
                 image={event.image}
@@ -20,10 +22,10 @@ const ShowAllEventCards = (props) => {
     return (
 
         <div>
-            <div className="container" id="events-gallery-container">
+            <div id="events-gallery-container">
                 <h1 className="h1b my-4">
                     <strong>
-                    {props.previousEvents ? "Past Events & Workshops" : "Current Events & Workshops"}
+                    {previousEvents ? "Past Events & Workshops" : "Current Events & Workshops"}
                     </strong>
                 </h1>
                 <div className="events-gallery">
@@ -42,11 +44,11 @@ const ShowAllEventCards = (props) => {
                     </div>
                     <div id="more-info-box-event">
                         <p className="h3w">
-                            {props.previousEvents ? "See some of our past events!" : "See some of our current events!"}
+                            {previousEvents ? "See some of our past events!" : "See some of our current events!"}
                         </p>
 
-                        <Link to={props.previousEvents ? "/events" : "/pastevents" } className="btn btn-secondary h2w">
-                            {props.previousEvents ? "Current Events" : "Past Events"}
+                        <Link to={previousEvents ? "/events" : "/pastevents" } className="btn btn-secondary h2w">
+                            {previousEvents ? "Current Events" : "Past Events"}
                         </Link>
                     </div>
                 </div>

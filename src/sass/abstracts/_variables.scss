@@ -1,0 +1,116 @@
+$primary-font: Proza Libre, sans-serif;
+$secondary-font: Opens Sans, sans-serif;
+
+$primary-orange: #EB600B;
+$secondary-orange: #F59719;
+
+
+$primary-green: #2E8B57;
+
+
+  
+  .green-blue {
+      background-color:#426F7E; 
+  }
+  
+  .primary-orange {
+      background-color: #EB600B;
+  }
+
+
+  
+  .container {
+	width:70%;
+	max-width: 1366px;
+}
+
+
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+        border-top-color: currentcolor;
+        border-top-style: none;
+        border-top-width: 0px;
+    border-top: 1px solid #444444;
+}
+
+
+
+
+
+
+.w-40 {
+	width:40%;
+}
+
+.w-20 {
+	width:20%;
+}
+.w-50 {
+	width:50%;
+}
+
+.w-10 {
+	width:10%;
+}
+
+.w-30 {
+	width:30%;
+}
+
+.w-35 {
+	width:35%;
+}
+
+.w-70 {
+	width:70%;
+}
+
+.w-90 {
+	width:90%;
+}
+
+.w-100 {
+	width:100%;
+}
+
+
+div.item:hover img{
+    opacity:0.3;
+    filter: grayscale(100%);
+  }
+  
+  div.item:hover p{
+    opacity:0.3;
+    filter: grayscale(100%);
+  }
+  
+  div.item:hover h3{
+    opacity:0.3;
+    filter: grayscale(100%);
+  }
+  
+  a:hover {
+      color: #EB600B;
+  }
+  
+  .btn-outline-dark:hover {
+      color: white;
+      background-color: #EB600B;
+      border-color: #EB600B;
+  }
+  
+  .btn-primary:hover {
+      color: white;
+      background-color: #F59719;
+      border-color: #F59719;
+  }
+  
+  .btn-secondary:hover {
+      color: white;
+      background-color: #EB600B;
+      border-color: #EB600B;
+  }
+  

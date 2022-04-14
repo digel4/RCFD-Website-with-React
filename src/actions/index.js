@@ -7,7 +7,11 @@ import {
     EDIT_EVENT,
     DELETE_EVENT,
     ADMIN_LOGOUT,
-    ADMIN_LOGIN
+    ADMIN_LOGIN,
+    MAILCHIMP_EMAIL,
+    MAILCHIMP_FIRST_NAME,
+    MAILCHIMP_SECOND_NAME,
+    SEND_DETAILS_TO_MAILCHIMP_API
   } from './types';
 
   // ADMIN AUTH ACTIONS
@@ -160,4 +164,30 @@ export const createEvent = (formValues) => async dispatch => {
 
   export const setName = (name) => async dispatch => {
     dispatch({ type: "SET_NAME",  payload: {name} } )
+  }
+
+
+  // EMAIL SUBSCRIBE ACTIONS
+
+  export const setMailChimpfirstName = (firstName) => async dispatch => {
+    console.log(firstName)
+    dispatch({ type: MAILCHIMP_FIRST_NAME,  payload: firstName } )
+  }
+
+  export const setMailChimpSecondName = (secondName) => async dispatch => {
+    console.log(secondName)
+
+    dispatch({ type: MAILCHIMP_SECOND_NAME,  payload: secondName } )
+  }
+
+  export const setMailChimpEmail = (email) => async dispatch => {
+
+    dispatch({ type: MAILCHIMP_EMAIL,  payload: email } )
+  }
+
+  export const sendDetailsToMailChimpAPI = (formValues) => async dispatch => {
+    console.log(formValues)
+    const response = await events.post('/subscribe', {...formValues});
+
+    dispatch({ type: SEND_DETAILS_TO_MAILCHIMP_API, payload: response.data })
   }

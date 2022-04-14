@@ -1,0 +1,109 @@
+
+/*Hero Styles*/
+
+.hero {
+	position: relative;
+	justify-content: center;
+	text-align: center;
+	min-height: 100vh;
+	color: #fff;
+	display:flex;
+}
+
+.hero .background-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	z-index: -1;
+	background-color: #80a3db;
+}
+
+
+.hero-content-area {
+    opacity: 0;
+    animation: 1s slidefade 1s forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 100px;
+}
+
+@keyframes slidefade {
+	100% {
+		opacity: 1;
+		margin: 0;
+	}
+}
+
+#landing-box {
+	display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+	height: 70vh
+}
+
+
+.sign-up-btn {
+	opacity: 0%;
+}
+
+.events-gallery {
+	display: flex;
+	flex-wrap:wrap;
+	Flex-basis: 350px;
+}
+
+#landing-quote-box {
+	background-color: #426F7E;
+	height: 50%;
+	margin-bottom: 6em;
+}
+
+
+@media only screen and (max-width: 400px) {
+	body .hero-content-area {
+		padding-bottom: 10px;
+		padding-top: 0px;
+	}
+	
+	
+	body .card {
+		width: 19rem;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	body .hero h1 {
+		font-size: 20px;
+	}
+
+	body .hero h3 {
+		font-size: 16px;
+	}
+}
+@media (max-width: 800px) {
+	.hero h1 {
+		font-size: 24px;
+	}
+
+	.hero h3 {
+		font-size: 20px;
+	}
+
+	.hero a.btn {
+		padding: 15px 40px;
+	}
+	
+	.hero-content-area {
+		opacity: 0;
+		animation: 1s slidefade 1s forwards;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		padding-bottom: 100px;
+		padding-top: 300px;
+	}
+}

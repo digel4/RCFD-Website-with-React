@@ -1,0 +1,65 @@
+.testTest {
+    color: red;
+    background-color: blue;
+}
+
+#coachesPageTitle {
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
+.coachImage {
+	width: 25%;
+}
+
+.coachImage img {
+	width: 100%;
+}
+
+.coachTitle {
+	padding-bottom: 1em;
+	
+}
+
+.coachbio {
+	
+}
+
+.coachText {
+	width: 70%;
+	
+}
+
+#coach-layout {
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+.coachSection {
+	display: flex;
+	padding-bottom: 2em;
+	justify-content: space-between;
+}
+
+@media only screen and (max-width: 1000px) {
+	#coach-layout {
+	}
+
+	.coachSection {
+	flex-direction: column;
+	width: 100%;
+	}
+	
+	.coachImage {
+	width: 100%;
+	}
+	
+	.coachText {
+	width: 100%;
+	
+	}
+
+	.coachImage img {
+	}
+}

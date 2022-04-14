@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import  { useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
-
+  const { adminLogin, adminStatus, setAdminName, setPassword, verifyUser, adminLogout  } = props;
   const navigate = useNavigate();
 
   const formSubmitHandler = e => {
     e.preventDefault()
-    props.adminLogin(props.adminStatus.adminName, props.adminStatus.adminPassword)
+    adminLogin(adminStatus.adminName, adminStatus.adminPassword)
     navigate("/events", { replace: true });
   }
 
@@ -21,7 +21,6 @@ const Login = (props) => {
   
   return (
     <div>
-      <p>hello from login</p>
       <form className="auth-form" onSubmit={formSubmitHandler}>
         <div class="form-group" FormGroup label="User" labelFor="userName">
           <input class="form-control"
@@ -29,10 +28,9 @@ const Login = (props) => {
             name="userName"
             placeholder="User Name"
             type="text"
-            value = { props.adminStatus.adminName }
-            onChange={e => props.setAdminName(e.target.value)}
-          >
-          </input>
+            value = { adminStatus.adminName }
+            onChange={e => setAdminName(e.target.value)}
+          />
         </div>
         <div class="form-group" label="Password" labelFor="password">
           <input class="form-control"
@@ -40,17 +38,16 @@ const Login = (props) => {
             placeholder="Password"
             type="password"
             name="password"
-            value={props.adminStatus.adminPassword}
-            onChange={e => props.setPassword(e.target.value)}
-          >
-          </input>
+            value={adminStatus.adminPassword}
+            onChange={e => setPassword(e.target.value)}
+          />
         </div>
         <button className="btn btn-primary btn-block" type="submit" >Sign In</button>
       </form>
 
       <button className="btn btn-primary btn-block" onClick={props.verifyUser}>verifyUser</button>
       <button className="btn btn-primary btn-block" onClick={showState}>show state</button>
-      <button className="btn btn-primary btn-block" onClick={() => props.adminLogout(props.adminStatus.token)}>Log Out</button>
+      <button className="btn btn-primary btn-block" onClick={() => adminLogout(adminStatus.token)}>Log Out</button>
     </div>
   )
 }

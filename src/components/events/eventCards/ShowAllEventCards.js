@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 
 const ShowAllEventCards = (props) => {
-    const { fetchCurrEvents, fetchPastEvents } = props
+    const { fetchCurrEvents, fetchPastEvents, token, currEvents, pastEvents } = props
     useEffect( () => {
         fetchCurrEvents();
         fetchPastEvents();
@@ -19,7 +19,7 @@ const ShowAllEventCards = (props) => {
     const { pathname } = useLocation();
 
     const adminControlPanel = () => {
-        if(props.token) {
+        if(token) {
             return (
                 <Link to="/admin/createEvent" className="btn btn-primary btn-block">Create Event</Link>
             )
@@ -27,18 +27,18 @@ const ShowAllEventCards = (props) => {
     }
     
     const currEventsLoader = () => {
-        if (!props.currEvents) {
+        if (!currEvents) {
             return 'loading'
         } else {
-            return <AllEventCards token={props.token} eventsList={props.currEvents} previousEvents={false}/>
+            return <AllEventCards token={token} eventsList={currEvents} previousEvents={false}/>
         }
     }
 
     const pastEventsLoader = () => {
-        if (!props.pastEvents) {
+        if (!pastEvents) {
             return 'loading'
         } else {
-            return <AllEventCards token={props.token} eventsList={props.pastEvents} previousEvents={true} />
+            return <AllEventCards token={token} eventsList={pastEvents} previousEvents={true} />
         }
     }
 
@@ -58,14 +58,10 @@ const ShowAllEventCards = (props) => {
         }
     }
     return (
-        
         <div className="container">
-        <div>
             {adminControlPanel()}
             {eventsSelector()}
         </div>
-
-    </div>
     )
 }
 

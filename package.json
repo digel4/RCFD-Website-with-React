@@ -19,6 +19,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
+    "react-share": "^4.4.0",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
     "suneditor": "^2.42.0",
@@ -29,7 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "scss": "sass --watch src/sass:src/stylesheets"
   },
   "eslintConfig": {
     "extends": [
