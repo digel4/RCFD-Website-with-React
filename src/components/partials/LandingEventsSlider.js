@@ -29,14 +29,14 @@ const LandingEventsSlider = (props) => {
 
     if (!currEvents) {
         return (
-            <p className="h3b">
+            <p className="h3-black">
                 Loading
             </p>
         )
     } else if (currEvents.length > 0) {
         return (
-            <div className="container" id="events-gallery-container">
-                <div id="events-and-workshop-btn">
+            <div id="events-gallery-container">
+                <div>
                     <Link to="/events" className="btn btn-primary my-4">Events & Workshops</Link>
                 </div>
                 <div className="events-gallery">
@@ -48,7 +48,7 @@ const LandingEventsSlider = (props) => {
         )
     } else {
         return (
-            <p className="h3b">
+            <p className="h3-black">
                 There is no upcoming events. Please check again soon!
             </p>
         )

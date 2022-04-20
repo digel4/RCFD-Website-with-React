@@ -1,7 +1,5 @@
 
 header {
-	position: absolute;
-	width: 70%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -66,4 +64,31 @@ header nav li {
 	header nav {
 		margin-right:0px;
 	}
+}
+
+
+.big-house-logo {
+	height: 6rem;
+	width: 6rem
+}
+
+.rcfd-logo {
+	height: 6rem;
+	width: 6rem
+}
+
+.eu-logo {
+	height: 6rem;
+	width: 6rem
+}
+
+.midlands-engine-logo {
+	height: 6rem;
+	width: 6rem
+}
+
+
+  
+nav {
+	list-style: none;
 }

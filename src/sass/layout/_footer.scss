@@ -10,8 +10,37 @@
       height: auto;
 }
 
-#footer {
+footer {
 	background-color: #707070;
-  	bottom: 0;
-  	width: 100%;
+  	width: 100%;	  
+}
+
+#footer-container {
+	width: 70%;
+	margin: auto;
+}
+
+#about-content {
+	display: flex;
+	justify-content: space-between;
+}
+
+#spending-organisation-logos {
+	display: flex;
+	justify-content: space-between;
+}
+
+#funding-organisation-logos {
+	display: flex;
+	justify-content: space-around;
+}
+
+#about-content-info {
+	display: flex;
+	justify-content: space-between;
+}
+
+#about-content-logos {
+	display: flex;
+	justify-content: flex-end;
 }

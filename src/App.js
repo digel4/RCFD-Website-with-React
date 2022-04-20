@@ -1,6 +1,6 @@
 // import React from 'react';
 import { useCallback, useEffect } from "react"
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 // Components
@@ -21,12 +21,21 @@ import CreateEvent from './components/admin/CreateEvent';
 import { verifyUser } from './actions';
 
 //Styling
-import './App.css';
+import './stylesheets/main.css';
 
 
 
 const App = (props) => {
+  // const  { pathname  } = useLocation();
   const { verifyUser, token } = props
+
+  // const heroImage = () => {
+  //   if(pathname === '/') {
+  //     return (
+  //       <div id="hero-image"></div>
+  //     )
+  //   }
+  // }
   const verifyUserInApp = useCallback(() => {
     verifyUser()
   }, [verifyUser])
@@ -36,7 +45,9 @@ const App = (props) => {
   }, [verifyUserInApp])
 
   return (
-    <div>
+
+    <div id="nav-grid-container">
+      {/* {heroImage} */}
       
       <BrowserRouter>
           <Header />
@@ -50,10 +61,9 @@ const App = (props) => {
             {/* Admin Routes */}
             <Route path="/admin/createEvent" element={ !token ? <Login /> : <CreateEvent/> } />
             <Route path="/admin/editEvent/:id" element={ !token ? <Login /> : <EditEvent/> } />
-
           </Routes>
         </BrowserRouter>
-        <EmailSubscribe />
+        {/* <EmailSubscribe /> */}
         <Footer />
       
     </div>

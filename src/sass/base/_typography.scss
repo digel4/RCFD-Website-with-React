@@ -1,14 +1,13 @@
 @use '../abstracts/variables' as var;
 
 body {
-	font-family: var.$secondary-font;
+	font-family: var.$primary-font;
     font-size: 100%
 }
 
 body, html {
   height: 100%;
 }
-
 
 .hr1 {
     border: 0;
@@ -20,79 +19,78 @@ body, html {
   }
 
   
-.bodycopyw {
+.body-copy-white {
 	font-family: var.$secondary-font;
 	color: white;
 }
 
-.bodycopyb {
+.body-copy-black {
 	font-family: var.$secondary-font;
 	color: black;
 }
 
-.bodycopysmw {
+.body-copy-small-white {
 	font-family: var.$secondary-font;
     font-size: 50%;
 	color: white;
 }
 
-.bodycopysmb {
+.body-copy-small-black {
 	font-family: var.$secondary-font;
     font-size: 50%;
 	color: black;
 }
 
-.h1w {
-	font-family: var.$primary-font;
+.h1-white {
     font-size: 250%;
 	color: white;
 }
 
-.h1b {
-	font-family: var.$primary-font;
+.h1-black {
     font-size: 250%;
 	color: black;
 }
 
-.h3b {
-    font-family: var.$primary-font;
+.h3-black {
     font-size: 150%;
     color: black;
 }
 
-.h3w {
-    font-family: var.$primary-font;
+.h3-white {
     font-size: 150%;
     color: white;
 }
 
-.h2b {
-    font-family: var.$primary-font;
+.h2-black {
     font-size: 200%;
     color: black;
 }
 
-.h2w {
-    font-family: var.$primary-font;
+.h2-white {
     font-size: 200%;
     color: white;
 }
 
-.h2o {
-	font-family: var.$primary-font;
+.h2-orange {
 	font-size: 200%;
 	color: var.$primary-orange;
 }
 
-.h3o {
-	font-family: var.$primary-font;
-	// font-size: 24px;
+.h3-orange {
     font-size: 200%;
 	color: var.$primary-orange;
 }
 
-.bodycopyo {
+.body-copy-orange {
 	font-family: var.$secondary-font;
-	//font-size: 16px;
 	color: var.$primary-orange;
+}
+
+li {
+    list-style-type: none
+}
+
+ul {
+    padding-inline-end: 2em;
+    padding-inline-start: 0em;
 }

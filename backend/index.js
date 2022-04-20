@@ -1,11 +1,11 @@
 const express        = require("express"),
       app            = express(),
       body           = require("body-parser"),
-	  cookieParser   = require("cookie-parser"),
+	    cookieParser   = require("cookie-parser"),
       mongoose       = require("mongoose"),
       passport       = require("passport"),
       methodOverride = require("method-override"),
-	  cors           = require("cors");
+	    cors           = require("cors");
 
 
 
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== "production") {
 
 // To connect with your mongoDB database
 console.log("attempting to connect to DB")
-mongoose.connect(MONGO_DB_CONNECTION_STRING, { useNewUrlParser: true }).then(() => {
+mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, { useNewUrlParser: true }).then(() => {
 	console.log("connected to DB");
 }).catch(err => {
 	console.log('ERROR triggered:', err.message)

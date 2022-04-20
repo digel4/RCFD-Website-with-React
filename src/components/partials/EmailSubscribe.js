@@ -14,8 +14,8 @@ const EmailSubscribe = (props) => {
     return (
         <div className="container my-4" id="email-subscribe">
             <div className="d-flex flex-column p-4">
-                <h1 className="h1w text-center mb-3">Stay in Touch!</h1>
-                <h2 className="h2w text-center mb-4">Always be in the know about upcoming RCF events and workshops by subscribing to our newsletter!</h2>
+                <h1 className="h1-white text-center mb-3">Stay in Touch!</h1>
+                <h2 className="h2-white text-center mb-4">Always be in the know about upcoming RCF events and workshops by subscribing to our newsletter!</h2>
                 <form id="email-subscribe-form" onSubmit={formSubmitHandler}>
                     <div className="row mb-2">
                         <div className="col">

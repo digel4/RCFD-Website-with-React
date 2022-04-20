@@ -9,7 +9,7 @@ const EventCardButtons = (props) => {
     }
     if (token) { 
         return (
-            <p className="bodycopyb card-text text-center">
+            <p className="body-copy-black card-text text-center">
                 <Link to={`/events/${id}`} className="btn btn-primary btn-block"> See more</Link>
                 {/* <button className="btn btn-primary btn-block" >edit</button> */}
                 <Link to={`/admin/editEvent/${id}`} className="btn btn-primary btn-block">Edit Event</Link>
@@ -18,7 +18,7 @@ const EventCardButtons = (props) => {
         )
     } else {
         return(
-            <p className="bodycopyb card-text text-center">
+            <p className="body-copy-black card-text text-center">
                 <Link to={`/events/${id}`} className="btn btn-primary btn-block"> See more</Link>
             </p>
         )

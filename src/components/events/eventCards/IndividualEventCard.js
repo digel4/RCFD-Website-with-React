@@ -7,15 +7,15 @@ const EventCard = (props) => {
             <div className="card">
                 <img src={image} className="card-img-top " alt="..."></img>
                 <div class="d-flex card-date card-img-overlay w-25">
-                    <p className="bodycopyb text-center card-text">
+                    <p className="body-copy-black text-center card-text">
                         {shortDate}
                     </p>
                 </div>
                 <div className="d-flex flex-column card-body mx-auto card-img-overlay">
-                    <h3 className="h3o card-text text-center mx-auto">
+                    <h3 className="h3-orange card-text text-center mx-auto">
                         {name}
                     </h3>
-                    <p className="bodycopyb card-text text-center">
+                    <p className="body-copy-black card-text text-center">
                         {excerpt}
                     </p>
                     <EventCardButtons id={id} token={token}/>

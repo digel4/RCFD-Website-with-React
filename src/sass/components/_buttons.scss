@@ -6,8 +6,34 @@
     border-color: var.$primary-orange;
 }
 
+.btn-primary:hover {
+	color: white;
+	background-color: #F59719;
+	border-color: #F59719;
+}
+
 .btn-secondary {
 	color: white;
 	background-color: var.$secondary-orange;
     border-color: var.$secondary-orange;
+	display: inline;
+	margin-left: auto;
+	margin-right: auto;
 }
+
+.btn-secondary:hover {
+	color: white;
+	background-color: #EB600B;
+	border-color: #EB600B;
+}
+
+
+
+.btn-outline-dark:hover {
+	color: white;
+	background-color: #EB600B;
+	border-color: #EB600B;
+}
+
+
+

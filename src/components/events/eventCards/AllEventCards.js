@@ -23,7 +23,7 @@ const ShowAllEventCards = (props) => {
 
         <div>
             <div id="events-gallery-container">
-                <h1 className="h1b my-4">
+                <h1 className="h1-black my-4">
                     <strong>
                     {previousEvents ? "Past Events & Workshops" : "Current Events & Workshops"}
                     </strong>
@@ -35,19 +35,19 @@ const ShowAllEventCards = (props) => {
                 </div>
             </div>
             <div id="more-info-box-title">
-                <h1 className="h1b"><strong>More Info</strong></h1>
+                <h1 className="h1-black"><strong>More Info</strong></h1>
             </div>
                 <div id="more-info-box">
                     <div id="more-info-box-partner">
-                        <p className="h3w">There's more events hosted by our Big House Partners!</p>
-                        <a href="https://bighouse.org.uk/events" className="btn btn-primary h2w">Partner Events</a>
+                        <p className="h3-white">There's more events hosted by our Big House Partners!</p>
+                        <a href="https://bighouse.org.uk/events" className="btn btn-primary h2-white">Partner Events</a>
                     </div>
                     <div id="more-info-box-event">
-                        <p className="h3w">
+                        <p className="h3-white">
                             {previousEvents ? "See some of our past events!" : "See some of our current events!"}
                         </p>
 
-                        <Link to={previousEvents ? "/events" : "/pastevents" } className="btn btn-secondary h2w">
+                        <Link to={previousEvents ? "/events" : "/pastevents" } className="btn btn-secondary h2-white">
                             {previousEvents ? "Current Events" : "Past Events"}
                         </Link>
                     </div>

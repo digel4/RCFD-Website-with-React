@@ -1,0 +1,21 @@
+#nav-grid-container {
+	display: grid;
+	grid-template-columns: 15% 70% 15%;
+	grid-template-rows: 15vh 85vh auto auto auto
+}
+
+header {
+	grid-column: 2 / span 1;
+}
+
+#landing-content {
+	display: grid;
+	grid-column: 2 / span 1;
+	grid-row: 2 / span 2;
+	grid-template-rows: 85vh auto auto;
+}
+
+footer {
+	grid-column: 1 / span 3;
+}
+

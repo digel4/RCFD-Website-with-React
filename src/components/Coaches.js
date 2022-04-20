@@ -4,7 +4,7 @@ const Coaches = () => {
 
         <div className="container">
             <div id="coachesPageTitle">
-                <h1 className="h1b">
+                <h1 className="h1-black">
                     RCF-D Specialist Coaches
                 </h1>
             </div>
@@ -14,10 +14,10 @@ const Coaches = () => {
                         <img src="/images/bevShephardHeadshot.jpg" alt="..."></img>
                     </div>
                     <div className="coachText">
-                        <div className="coachTitle h3b">
+                        <div className="coachTitle h3-black">
                             Bev Shephard - Consultant and Co-Director of Haarlem Artspace
                         </div>
-                        <div className="coachBio bodycopyb">
+                        <div className="coachBio body-copy-black">
                             <p>Bev is a specialist Arts and Creative Industry Consultant with twenty years’ Board-level experience in the third, private and public sectors. She is also a Founding Director of artist studios and public gallery Haarlem Artspace, in Wirksworth.</p>
 
                             <p>Bev is a generalist with breadth and depth of knowledge in starts-ups, strategy and planning, finance, change management, HR, governance and fundraising. She carries out consultancy, and delivers training and works on retainer for a number of different organisations.</p>
@@ -36,10 +36,10 @@ const Coaches = () => {
                         <img src="/images/CamillaBrownHeadshot.jpg" alt="..."></img>
                     </div>
                     <div className="coachText">
-                        <div className="coachTitle h3b">
+                        <div className="coachTitle h3-blackb">
                             Camilla Brown - Academic, Writer, Curator
                         </div>
-                        <div className="coachBio bodycopyb">
+                        <div className="coachBio body-copy-black">
                             <p>Camilla Brown is a curator, writer and educator on contemporary art, specialising in photography based in the Derbyshire. For ten years she was Senior curator at The Photographers’ Gallery, London previously she was Exhibitions Curator at Tate Liverpool. She works at both the University of Derby, where she teaches on the MA photography and film and at Middlesex University as Senior Lecturer Creative Industries. </p>
 
                             <p>Her writing on contemporary photography is regularly published in books and magazines. For the past 2 years she has been Associate Curator at Grain Photography Hub. She is on the steering group for the Format Photography Festival. </p>
@@ -54,10 +54,10 @@ const Coaches = () => {
                         <img src="/images/carolAdlamHeadshot.jpg" alt="..."></img>
                     </div>
                     <div className="coachText">
-                        <div className="coachTitle h3b">
+                        <div className="coachTitle h3-black">
                             Carol Adlam - Author-illustrator
                         </div>
-                        <div className="coachBio bodycopyb">
+                        <div className="coachBio body-copy-black">
                             <p>
                                 I am a UK-based writer and illustrator. I specialise in reportage artwork, graphic novels, and book illustration (children's and older, fiction and non-fiction), and I also write graphic novels, children’s books, short stories, and adaptations. I work closely with publishers, writers, designers, and clients from heritage / educational organisations, particularly museums, galleries, and universities.</p>
 
@@ -78,10 +78,10 @@ const Coaches = () => {
                         <img src="/images/debbieBryanHeadshot.jpg" alt="..."></img>
                     </div>
                     <div className="coachText">
-                        <div className="coachTitle h3b">
+                        <div className="coachTitle h3-black">
                             Debbie Bryan - Independent creative business owner & creative
                         </div>
-                        <div className="coachBio bodycopyb">
+                        <div className="coachBio body-copy-black">
                             <p>Our company project manages creative and cultural collaborations and commercial opportunities in the UK and overseas. We also own a successful gallery and creative space that we opened in 2009, we then introduced our tea room in 2015 - our gallery and venue centres around craft, heritage and experiences.</p>
 
                             <p>Located in the Nottingham's Lace Market area, the gallery is specialised in selling contemporary and heritage craft including in-house designed collections, our company also has a transnational website which promotes unique, quality product and creative and cultural workshop experiences.</p>
@@ -100,10 +100,10 @@ const Coaches = () => {
                         <img src="/images/tinaSmithHeadShot.png" alt="..."></img>
                     </div>
                     <div className="coachText">
-                        <div className="coachTitle h3b">
+                        <div className="coachTitle h3-black">
                             Tina Smith - Creative Business Mentor and Fundraising and Development Consultant
                         </div>
-                        <div className="coachBi bodycopybo">
+                        <div className="coachBi body-copy-black">
                             <p>Tina Smith has worked in the arts sector for over 20 years, starting out at the Arts Council where she worked for both the East Midlands offices and National Office facilitating strategic partnerships and projects to benefit artists and audiences. Tina assessed and evaluated arts capital and project grant applications and after leaving the Arts Council utilised her knowledge to become a freelance assessor and independent creative and cultural consultant.  Tina has a proven track record in supporting artists, arts organisations and recently secured significant funding for UK Young Artists and Bamboozle Theatre. </p>
 
                             <p>Tina currently works part time with Bamboozle Theatre Company developing multi-sensory experiences for profoundly disabled children and their families and Aakash Odedra Company (contemporary dance) as their fundraising consultant building and managing relationships with new and existing statutory funds and trusts and foundations. </p>
@@ -120,10 +120,10 @@ const Coaches = () => {
                         <img src="/images/EllenOharaHeadShot.jpg" alt="..."></img>
                     </div>
                     <div className="coachText">
-                        <div className="coachTitle h3b">
+                        <div className="coachTitle h3-black">
                             Ellen O’Hara - Creative Business Coach
                         </div>
-                        <div className="coachBio bodycopyb">
+                        <div className="coachBio body-copy-black">
                             <p>Ellen is the resident Creative Business Coach for Real Creative Futures – Digital.  She is a freelance business coach, creative facilitator, strategist and published researcher.  Over the last 20 years, Ellen has coached and supported hundreds of artists, makers, designers, creative and social entrepreneurs to achieve their creative ambitions and create social impact in a financially sustainable way. </p>
 
                             <p>She has designed and delivered enterprise programmes for Nesta & Arts Council England (Digital Arts & Culture Accelerator), Creative Industry Finance, Innovate UK and Crafts Council.  Currently, Ellen is a UK Associate with Nesta, delivering the Creative Hubs Academy for creative and social entrepreneurs in Southern Africa as part of the British Council’s Connect.Hubs progrmme.</p>

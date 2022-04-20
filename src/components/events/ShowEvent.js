@@ -11,16 +11,6 @@ const ShowEvent = (props) => {
     const { fetchEvent, selectedEvent } = props
     const shareURL = `https://www.realcreativefutures.co.uk/events/${id}`
     const shareMessage = 'Check out this upcoming event by Real Creative Futures Digital';
-    const twitterShareEvent = () => {
-
-    }
-
-    // <a 
-    //     href="https://twitter.com/share?ref_src=twsrc%5Etfw" 
-    //     class="twitter-share-button" 
-    //     data-show-count="false">Tweet
-    // </a>
-    // <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     useEffect(() => {
         fetchEvent(id);
@@ -36,9 +26,9 @@ const ShowEvent = (props) => {
                 <div id="event-box">
                     <div className="event-box-title">
                         <h1 className="h2w">{ selectedEvent.name }</h1>
-                        <a href={ selectedEvent.eventURL } className="btn btn-primary h3w event-box-btn-lg">Book Now</a>
+                        <a href={ selectedEvent.eventURL } className="btn btn-primary h3-white event-box-btn-lg">Book Now</a>
                     </div>
-                    <div className="event-box-btn-sm"><a href={ selectedEvent.eventURL} className="btn btn-primary h3w">Book Now</a></div>
+                    <div className="event-box-btn-sm"><a href={ selectedEvent.eventURL} className="btn btn-primary h3-white">Book Now</a></div>
                     <div className="event-box-excerpt">
                         <h3 className="h3w">{ selectedEvent.excerpt }</h3>
                     </div>
@@ -47,8 +37,8 @@ const ShowEvent = (props) => {
             <div className="container">
 	            <div className="d-flex flex-row my-4">
 		            <div className="d-flex flex-column w-30 my-4">
-			            <p className="bodycopyo">{ selectedEvent.longDateAsString }<br/>{ selectedEvent.startTime } - { selectedEvent.endTime } GMT</p>
-                        <p className="bodycopyb">
+			            <p className="body-copy-orange">{ selectedEvent.longDateAsString }<br/>{ selectedEvent.startTime } - { selectedEvent.endTime } GMT</p>
+                        <p className="body-copy-black">
                             { selectedEvent.businessName  } <br/>
                             { selectedEvent.streetNumber } <br/>
                             { selectedEvent.streetName } <br/>
@@ -56,11 +46,11 @@ const ShowEvent = (props) => {
                             { selectedEvent.postcode }
                         </p>
 			            <hr className="hr1"/>
-                        <p className="bodycopyb mb-0">Got questions about this event?</p>
+                        <p className="body-copy-black mb-0">Got questions about this event?</p>
                         
-                        <a href="mailto:rcf@nae.org.uk"><p className="bodycopyo mt-0 mb-0">Speak to RCF</p></a>
+                        <a href="mailto:rcf@nae.org.uk"><p className="body-copy-orange mt-0 mb-0">Speak to RCF</p></a>
                         <hr className="hr1"/>
-                        <p className="bodycopyb">share this event</p>
+                        <p className="body-copy-black">share this event</p>
                         <span>
                             <LinkedinShareButton
                                 url={shareURL}>
@@ -86,19 +76,19 @@ const ShowEvent = (props) => {
                         <div className="w-90 m-auto">
                             <div className="d-flex flex-column ">
                                 <div className="d-flex flex-row p-3 justify-content-center" style={{ backgroundColor: "#2E8B57" }}>
-                                    <h1 className="h2w"><strong>Attend This Event</strong></h1>
+                                    <h1 className="h2-white"><strong>Attend This Event</strong></h1>
                                 </div>
                                 <div id="event-box">
                                     <div className="d-flex flex-row p-4 justify-content-between" style={{ backgroundColor: "#426F7E"}}>
                                         <div className="d-flex flex-column w-40 justify-content-between">
-                                            <h3 className="h3w m-2 mb-4">New to the Big House?<br/>Sign up with us first...</h3>
-                                            <h3 className="h3w m-2 mt-4">Already signed up?<br/>Book your free place now</h3>
+                                            <h3 className="h3-white m-2 mb-4">New to the Big House?<br/>Sign up with us first...</h3>
+                                            <h3 className="h3-white m-2 mt-4">Already signed up?<br/>Book your free place now</h3>
                                         </div>
                                         <div className="d-flex flex-column w-20 justify-content-between">
                                         </div>
                                         <div className="d-flex flex-column w-40 justify-content-between">
-                                            <a href="https://bighouse.org.uk/#" className="btn btn-primary h2w m-2">Sign-up</a>
-                                            <a href={ selectedEvent.eventURL } className="btn btn-secondary h2w m-2">Book Now</a>
+                                            <a href="https://bighouse.org.uk/#" className="btn btn-primary h2-white m-2">Sign-up</a>
+                                            <a href={ selectedEvent.eventURL } className="btn btn-secondary h2-white m-2">Book Now</a>
                                         </div>
                                     </div>
                                 </div>
