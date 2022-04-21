@@ -1,0 +1,17 @@
+@keyframes slide {
+	from {
+		margin-top: -50%;
+	}
+	to {
+		margin-top: 0%;
+	}
+}
+
+@keyframes appear {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

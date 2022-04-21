@@ -19,22 +19,21 @@ const ShowEvent = (props) => {
      if(!selectedEvent) {
          return "Loading"
      } 
-     console.log(selectedEvent)
     return (
-        <div>
-            <div className="container pt-4">
+        <div id="show-event">
+            <div className="pt-4">
                 <div id="event-box">
                     <div className="event-box-title">
-                        <h1 className="h2w">{ selectedEvent.name }</h1>
+                        <h1 className="h2-white">{ selectedEvent.name }</h1>
                         <a href={ selectedEvent.eventURL } className="btn btn-primary h3-white event-box-btn-lg">Book Now</a>
                     </div>
                     <div className="event-box-btn-sm"><a href={ selectedEvent.eventURL} className="btn btn-primary h3-white">Book Now</a></div>
                     <div className="event-box-excerpt">
-                        <h3 className="h3w">{ selectedEvent.excerpt }</h3>
+                        <h3 className="h3-white">{ selectedEvent.excerpt }</h3>
                     </div>
  	            </div>
             </div>
-            <div className="container">
+            <div>
 	            <div className="d-flex flex-row my-4">
 		            <div className="d-flex flex-column w-30 my-4">
 			            <p className="body-copy-orange">{ selectedEvent.longDateAsString }<br/>{ selectedEvent.startTime } - { selectedEvent.endTime } GMT</p>

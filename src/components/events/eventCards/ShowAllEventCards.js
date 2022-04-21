@@ -5,9 +5,6 @@ import { fetchCurrEvents } from '../../../actions';
 import { fetchPastEvents } from '../../../actions';
 import { connect } from 'react-redux';
 
-
-
-
 const ShowAllEventCards = (props) => {
     const { fetchCurrEvents, fetchPastEvents, token, currEvents, pastEvents } = props
     useEffect( () => {
@@ -21,7 +18,10 @@ const ShowAllEventCards = (props) => {
     const adminControlPanel = () => {
         if(token) {
             return (
-                <Link to="/admin/createEvent" className="btn btn-primary btn-block">Create Event</Link>
+                <div id="admin-control-panel">
+                    <h3>Admin Control Panel</h3>
+                    <Link to="/admin/createEvent" className="btn btn-primary">Create Event</Link>
+                </div>
             )
         }
     }
@@ -58,7 +58,7 @@ const ShowAllEventCards = (props) => {
         }
     }
     return (
-        <div className="container">
+        <div id="events-selector">
             {adminControlPanel()}
             {eventsSelector()}
         </div>

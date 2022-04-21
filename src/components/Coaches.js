@@ -2,7 +2,7 @@ const Coaches = () => {
     return (
         
 
-        <div className="container">
+        <div id="coaches">
             <div id="coachesPageTitle">
                 <h1 className="h1-black">
                     RCF-D Specialist Coaches

@@ -1,6 +1,5 @@
 import LandingEventsSlider from './partials/LandingEventsSlider';
 
-
 const Landing = () => {
     return (
         <div id="landing-content">

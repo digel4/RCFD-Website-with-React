@@ -35,6 +35,27 @@ a:hover {
   color: #EB600B;
 }
 
+@keyframes slide {
+  from {
+    margin-top: -50%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.container {
+  width: 70%;
+  margin: auto;
+}
+
 .green-blue {
   background-color: #426F7E;
 }
@@ -166,99 +187,198 @@ ul {
   padding-inline-start: 0em;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 35px 0;
-  animation: 1s fadein 0.5s forwards;
-  opacity: 0;
-  color: white;
-  z-index: 10;
+.green-blue {
+  background-color: #426F7E;
 }
 
-.landing-header {
-  display: flex;
+.primary-orange {
+  background-color: #EB600B;
 }
 
-.banner-logos {
-  display: flex;
-  flex-wrap: wrap;
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top-color: currentcolor;
+  border-top-style: none;
+  border-top-width: 0px;
+  border-top: 1px solid #444444;
 }
 
-@keyframes fadein {
-  100% {
+div.item:hover img {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+div.item:hover p {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+div.item:hover h3 {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+a:hover {
+  color: #EB600B;
+}
+
+@keyframes slide {
+  from {
+    margin-top: -50%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
   }
 }
-header nav {
+nav {
   display: flex;
-  margin-right: -15px;
+  height: 100%;
+  align-items: center;
+  transition: background-color 0.3s ease-out;
+  list-style: none;
+  text-decoration: none;
+}
+nav li {
+  margin: 0 0.5em;
+}
+nav div {
+  height: 100%;
 }
 
-header nav li {
-  margin: 0 15px;
+#ham-nav {
+  display: none;
 }
 
-@media (max-width: 800px) {
-  header {
-    padding: 20px 50px;
-    flex-direction: column;
-  }
-
-  header h2 {
-    margin-bottom: 15px;
-  }
+nav label {
+  display: none;
 }
-@media only screen and (max-width: 400px) {
-  body header .h3w {
-    font-size: 14px;
-  }
-
-  .banner-logos {
-    display: flex;
-  }
+nav input {
+  display: none;
 }
-@media (max-width: 800px) {
-  header .h3w {
-    font-size: 20px;
-  }
 
-  header nav {
-    margin-right: 0px;
-  }
+.active {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  background-color: white;
+  color: #F59719;
 }
-.big-house-logo {
-  height: 6rem;
-  width: 6rem;
+
+.active:hover {
+  text-decoration: inherit;
+  color: #F59719;
+}
+
+.inactive {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  background-color: #F59719;
+  color: white;
+  transition: background-color 0.3s ease-out;
+}
+
+.inactive:hover {
+  background-color: white;
+  color: #F59719;
+  text-decoration: inherit;
+  display: flex;
+  height: 100%;
+  align-items: center;
 }
 
 .rcfd-logo {
   height: 6rem;
-  width: 6rem;
+  width: 4.5rem;
 }
 
-.eu-logo {
-  height: 6rem;
-  width: 6rem;
-}
+@media only screen and (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+  }
+  nav label {
+    display: flex;
+    color: white;
+    font-style: normal;
+    font-size: 2.5em;
+    margin: 0;
+  }
+  nav input {
+    display: block;
+  }
 
-.midlands-engine-logo {
-  height: 6rem;
-  width: 6rem;
-}
+  #ham-items {
+    animation: appear 0.5s forwards;
+    position: absolute;
+    z-index: 2;
+    top: 7vh;
+    display: none;
+    flex-direction: column;
+    height: 30vh;
+    width: 100%;
+  }
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  #ham-items a {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+  }
 
-nav {
-  list-style: none;
+  nav input:checked ~ #ham-items {
+    display: flex;
+    transition: display 1s ease-out;
+    opacity: 0;
+  }
 }
-
+@keyframes slide {
+  from {
+    margin-top: -50%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 #nav-grid-container {
   display: grid;
   grid-template-columns: 15% 70% 15%;
-  grid-template-rows: 15vh 85vh auto auto auto;
+  grid-template-rows: 7vh 93vh auto auto auto;
 }
 
 header {
+  grid-column: 1/span 3;
+  grid-row: 1/span 1;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 7vh;
+}
+header div {
   grid-column: 2/span 1;
 }
 
@@ -266,13 +386,206 @@ header {
   display: grid;
   grid-column: 2/span 1;
   grid-row: 2/span 2;
-  grid-template-rows: 85vh auto auto;
+  grid-template-rows: 100vh auto auto;
+}
+
+#coaches {
+  grid-column: 2/span 1;
+  grid-row: 2/span 2;
+  animation: slide 2s, appear 2s;
+}
+@keyframes slide {
+  from {
+    margin-top: -50%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#events-selector {
+  grid-column: 2/span 1;
+  grid-row: 2/span 2;
+  animation: slide 2s, appear 2s;
+}
+@keyframes slide {
+  from {
+    margin-top: -50%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#show-event {
+  grid-column: 2/span 1;
+  animation: slide 2s, appear 2s;
+}
+@keyframes slide {
+  from {
+    margin-top: -50%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#event-form {
+  grid-column: 2/span 1;
+  grid-row: 2/span 2;
+  animation: slide 2s, appear 2s;
+}
+@keyframes slide {
+  from {
+    margin-top: -50%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 footer {
   grid-column: 1/span 3;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-row: 5/span 1;
+}
+footer div {
+  grid-column: 2/span 1;
 }
 
+/* Extra small devices (phones, less than 600px wide) */
+@media only screen and (max-width: 600px) {
+  #nav-grid-container {
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 7vh 93vh auto auto auto;
+  }
+
+  header {
+    grid-column: 1/span 3;
+  }
+}
+/* Small devices (portrait tablets & large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+/* Large devices (laptops/desktops, 992px and up) */
+/* Extra large devices (large laptops & desktops, 1200px and up) */
+.green-blue {
+  background-color: #426F7E;
+}
+
+.primary-orange {
+  background-color: #EB600B;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top-color: currentcolor;
+  border-top-style: none;
+  border-top-width: 0px;
+  border-top: 1px solid #444444;
+}
+
+div.item:hover img {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+div.item:hover p {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+div.item:hover h3 {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+a:hover {
+  color: #EB600B;
+}
+
+@keyframes slide {
+  from {
+    margin-top: -50%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+header {
+  opacity: 0;
+  color: white;
+  z-index: 10;
+  background-color: #F59719;
+  animation: 1s fade-in 0.5s forwards;
+}
+header div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    position: fixed;
+    width: 100%;
+    height: 7vh;
+  }
+  header div {
+    z-index: 10;
+  }
+}
 .bh-eu-me {
   width: 20%;
   height: auto;
@@ -288,11 +601,6 @@ footer {
 footer {
   background-color: #707070;
   width: 100%;
-}
-
-#footer-container {
-  width: 70%;
-  margin: auto;
 }
 
 #about-content {
@@ -649,12 +957,10 @@ a:hover {
 
 #hero-image {
   position: absolute;
-  top: 0;
-  left: 0;
   right: 0;
+  top: 0;
   width: 100vw;
   height: 100vh;
-  margin-right: 100px;
   background-size: cover;
   z-index: -1;
   background-color: #80a3db;

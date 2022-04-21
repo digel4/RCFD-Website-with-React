@@ -52,7 +52,7 @@ const EventForm = (props) => {
    
 
     return (
-    <div className="container row" style={{ width: "80%", margin: "auto" }}>
+    <div id="event-form" style={{ width: "80%", margin: "auto" }}>
         <form id="form" action="/admin/new" onSubmit={formSubmitHandler}>
             <h1>	
                 Create a new event

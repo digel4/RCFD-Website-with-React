@@ -1,94 +1,116 @@
+@use '../abstracts/variables' as var;
+@import '../abstracts/mixins';
 
-header {
+nav {
 	display: flex;
-	justify-content: space-between;
+	height: 100%;
 	align-items: center;
-	padding: 35px 0;
-	animation: 1s fadein 0.5s forwards;
-	opacity: 0;
+	transition: background-color 0.3s ease-out;
+	list-style: none;
+	text-decoration: none;
+	li {
+		margin: 0 0.5em;
+	}
+	div {
+		height: 100%;
+	}
+}
+
+#ham-nav {
+	display: none;
+}
+
+
+nav {
+	label {
+	display: none;
+	}
+	input {
+		display: none;
+	}
+}
+
+
+
+.active {
+	display:flex;
+	height: 100%;
+	align-items: center;
+	background-color: white;
+	color: var.$secondary-orange;
+}
+
+.active:hover {
+	text-decoration: inherit;
+	color: var.$secondary-orange;
+}
+
+.inactive {
+	display:flex;
+	height: 100%;
+	align-items: center;
+	background-color: var.$secondary-orange;
 	color: white;
-	z-index:10;
+	transition: background-color 0.3s ease-out;
 }
 
-.landing-header {
+.inactive:hover {
+	background-color: white;
+	color: var.$secondary-orange;
+	text-decoration: inherit;
 	display:flex;
-}
-
-.banner-logos {
-	display:flex;
-	flex-wrap: wrap;
-}
-
-@keyframes fadein {
-	100% {
-	opacity: 1;
-	}
-}
-
-
-header nav {
-	display: flex;
-	margin-right: -15px;
-}
-
-header nav li {
-	margin: 0 15px;
-}
-
-@media (max-width: 800px) {
-	header {
-		padding: 20px 50px;
-		flex-direction: column;
-	}
-
-	header h2 {
-		margin-bottom: 15px;
-	}
-}
-
-@media only screen and (max-width: 400px) {
-	body header .h3w {
-		font-size: 14px;
-	}
-	
-	.banner-logos {
-		display:flex;
-	}
-}
-
-@media (max-width: 800px) {
-	header .h3w {
-		font-size: 20px;
-	}
-	
-	header nav {
-		margin-right:0px;
-	}
-}
-
-
-.big-house-logo {
-	height: 6rem;
-	width: 6rem
+	height: 100%;
+	align-items: center;
 }
 
 .rcfd-logo {
 	height: 6rem;
-	width: 6rem
-}
-
-.eu-logo {
-	height: 6rem;
-	width: 6rem
-}
-
-.midlands-engine-logo {
-	height: 6rem;
-	width: 6rem
+	width: 4.5rem
 }
 
 
-  
-nav {
-	list-style: none;
+
+@media only screen and (max-width: 600px) {
+	nav {
+		
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: flex-start;
+		label{
+			display:flex; 
+			color: white;
+			font-style: normal;
+			font-size: 2.5em;
+			margin: 0;
+		}
+		input{
+			display: block
+		}
+	}
+
+	#ham-items {
+		
+		@include appear;
+		position: absolute;
+		z-index: 2;
+		top: 7vh;
+		display: none;
+		flex-direction: column;
+		height: 30vh;
+		width:100%;
+		a{
+			display: flex;
+			justify-content: center;
+			width: 100vw;
+		}
+	}
+
+	nav input:checked ~ #ham-items {
+		display: flex;
+		transition: display 1s ease-out;
+		opacity: 0;
+		
+		
+	}
+
 }

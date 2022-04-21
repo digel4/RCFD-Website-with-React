@@ -1,0 +1,53 @@
+@use '../abstracts/animations' as animate;
+
+@mixin slide-appear {
+    animation: 
+        slide 2s,
+        appear 2s;
+        
+    @keyframes slide {
+        from {
+            //top: 7vh;
+            margin-top: -50%;
+        }
+        to {
+            margin-top: 0%;
+        }
+    }
+    @keyframes appear {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+@mixin appear {
+    animation: appear 0.5s forwards;
+    @keyframes appear {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+@mixin fade-in {
+    animation: 1s fade-in 0.5s forwards;
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        } to {
+            opacity: 1;
+        }
+    }
+}
+
+
+
+
+
