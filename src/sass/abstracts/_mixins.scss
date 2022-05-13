@@ -47,6 +47,16 @@
     }
 }
 
+@mixin slow-fade-in {
+    animation: 1s slidefade 1s forwards;
+    @keyframes slidefade {
+        100% {
+            opacity: 1;
+            margin: 0;
+        }
+    }
+}
+
 
 
 

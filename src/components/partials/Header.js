@@ -42,7 +42,6 @@ const Header = () => {
                     </div>
                 </nav>
             </div>
-
         </header>
     )
     // return (

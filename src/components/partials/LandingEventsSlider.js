@@ -40,9 +40,7 @@ const LandingEventsSlider = (props) => {
                     <Link to="/events" className="btn btn-primary my-4">Events & Workshops</Link>
                 </div>
                 <div className="events-gallery">
-                    <div className="row">
                         {renderList()}
-                    </div>
                 </div>
             </div>
         )

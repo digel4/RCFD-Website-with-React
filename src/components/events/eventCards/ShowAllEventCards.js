@@ -1,12 +1,11 @@
 import React,  { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import AllEventCards from './AllEventCards';
-import { fetchCurrEvents } from '../../../actions';
-import { fetchPastEvents } from '../../../actions';
+import { fetchCurrEvents, fetchPastEvents, adminLogout } from '../../../actions';
 import { connect } from 'react-redux';
 
 const ShowAllEventCards = (props) => {
-    const { fetchCurrEvents, fetchPastEvents, token, currEvents, pastEvents } = props
+    const { fetchCurrEvents, fetchPastEvents, token, currEvents, pastEvents, adminLogout } = props
     useEffect( () => {
         fetchCurrEvents();
         fetchPastEvents();
@@ -20,7 +19,17 @@ const ShowAllEventCards = (props) => {
             return (
                 <div id="admin-control-panel">
                     <h3>Admin Control Panel</h3>
-                    <Link to="/admin/createEvent" className="btn btn-primary">Create Event</Link>
+                    <div className="admin-control-panel-buttons">
+                        <Link to="/admin/createEvent" className="btn btn-primary">Create Event</Link>
+                        <button className="btn btn-primary" onClick={() => adminLogout(token)}>Sign-out</button>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div id="admin-control-panel">
+                    <h3>Admin Control Panel</h3>
+                    <Link to="/login" className="btn btn-primary">Login</Link>
                 </div>
             )
         }
@@ -70,7 +79,8 @@ const mapStateToProps = state => {
     return {
         currEvents: state.events.currEvents,
         pastEvents: state.events.pastEvents,
-        token: state.admin.token
+        token: state.admin.token,
+        //adminStatus: { ...state.admin }
 
     }
 }
@@ -79,6 +89,7 @@ export default connect(
     mapStateToProps,
     { 
         fetchCurrEvents, 
-        fetchPastEvents 
+        fetchPastEvents,
+        adminLogout
     }
 )(ShowAllEventCards);

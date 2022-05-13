@@ -1,3 +1,16 @@
+#admin-control-panel {
+	display: flex;
+	align-items: center;
+	width: 25%;
+	flex-direction: column;
+	.admin-control-panel-buttons {
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		margin: 0.5rem;
+	}
+}
+
 #events-tab {
 	border: 2px solid black;
 	padding-top: 2rem;
@@ -64,12 +77,12 @@
 	margin-top: 50px;
 }
 
-#event-box {
-	background-color: #426F7E;
-	width: 100%;
-	padding: 1.5rem;
-	display: flex;
-}
+// #event-box {
+// 	background-color: #426F7E;
+// 	width: 100%;
+// 	padding: 1.5rem;
+// 	display: flex;
+// }
 
 .event-box-excerpt{
 	margin:1.5rem;
@@ -132,81 +145,5 @@
 }
 
 
-
-@media only screen and (max-width: 992px) {
-	
-	#more-info-box-event {
-		flex-direction: column;
-		align-items: stretch;
-	}
-	#more-info-box-partner {
-		flex-direction: column;
-		align-items: stretch;
-	}
-	
-	#more-info-box a {
-		flex-basis: auto;
- 	}
-	#more-info-box p {
-		text-align: center;
- 	}
-	
-	#event-box {
-		flex-direction: column;
-		text-align: center;
-	}
-	.event-box-btn-sm {
-		display:block;
-		order:1;
-	}
-	.event-box-btn-lg {
-		display:none;
-	}
-	.event-box-excerpt{
-		padding: 1.5rem;
-		width: 100%;
-		margin:auto;
-	}
-
-	.event-box-title{
-		width: 100%;
-		margin:auto;
-	}	
-}
-
-#admin-control-panel{
-
-}
-
-
-
-
-
-@media only screen and (max-width: 640px) {
-
-	form div {
-		flex-direction:column;
-		color: red;
-		display: flex;
-	}
-
-	#event-box div {
-		flex-direction:column;
-		flex-wrap:wrap;
-	}
-	
-	#learn-more {
-		display:flex;
-		flex-direction: column;
-	}
-	
-	#events-gallery-container {
-    	width: 90%;
-	}
-	
-	#events-and-workshop-btn {
-		justify-content: center;
-	}
-}
 
 

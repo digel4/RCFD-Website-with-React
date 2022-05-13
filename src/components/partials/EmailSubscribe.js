@@ -12,58 +12,46 @@ const EmailSubscribe = (props) => {
 
 
     return (
-        <div className="container my-4" id="email-subscribe">
-            <div className="d-flex flex-column p-4">
-                <h1 className="h1-white text-center mb-3">Stay in Touch!</h1>
-                <h2 className="h2-white text-center mb-4">Always be in the know about upcoming RCF events and workshops by subscribing to our newsletter!</h2>
-                <form id="email-subscribe-form" onSubmit={formSubmitHandler}>
-                    <div className="row mb-2">
-                        <div className="col">
-                            <input 
-                                type="text" 
-                                className="form-control" 
-                                name="firstName" 
-                                placeholder="First Name" 
-                                value={newsletterSubscritionDetails.firstName}
-                                onChange={e => {
-                                    setMailChimpfirstName(e.target.value)
-                                    console.log(newsletterSubscritionDetails.firstName)
-                                }}
-                            />
-                        </div>
-                        <div className="col">
-                            <input 
-                                type="text" 
-                                className="form-control" 
-                                name="secondName" 
-                                placeholder="Second Name"
-                                value={newsletterSubscritionDetails.secondName}
-                                onChange={e => {
-                                    setMailChimpSecondName(e.target.value)
-                                    console.log(newsletterSubscritionDetails.secondName)
-                                }}
-                            />
-                        </div>
-                        <div className="col">
-                            <input 
-                                type="email" 
-                                className="form-control" 
-                                name="email" 
-                                placeholder="Email"
-                                value={newsletterSubscritionDetails.email}
-                                onChange={e => {
-                                    setMailChimpEmail(e.target.value);
-                                    console.log(props.state)
-                                }}
-                            />
-                        </div>
-                        <div className="col flex-grow-0">
-                            <button type="submit" id="submit" className="btn btn-primary">Subscribe</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-    </div>
+        <div className="container" id="email-subscribe">
+            <h1 className="h1-white">Stay in Touch!</h1>
+            <h2 className="h2-white">Always be in the know about upcoming RCF events and workshops by subscribing to our newsletter!</h2>
+            <form id="email-subscribe-form" onSubmit={formSubmitHandler}>
+                <input 
+                    type="text" 
+                    className="" 
+                    name="firstName" 
+                    placeholder="First Name" 
+                    value={newsletterSubscritionDetails.firstName}
+                    onChange={e => {
+                        setMailChimpfirstName(e.target.value)
+                        console.log(newsletterSubscritionDetails.firstName)
+                    }}
+                />
+                <input 
+                    type="text" 
+                    className="" 
+                    name="secondName" 
+                    placeholder="Second Name"
+                    value={newsletterSubscritionDetails.secondName}
+                    onChange={e => {
+                        setMailChimpSecondName(e.target.value)
+                        console.log(newsletterSubscritionDetails.secondName)
+                    }}
+                />
+                <input 
+                    type="email" 
+                    className="" 
+                    name="email" 
+                    placeholder="Email"
+                    value={newsletterSubscritionDetails.email}
+                    onChange={e => {
+                        setMailChimpEmail(e.target.value);
+                        console.log(props.state)
+                    }}
+                />
+                <button type="submit" id="submit" className="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
     )
 }
 

@@ -13,6 +13,7 @@ import Coaches from './components/Coaches';
 import ShowEvent from './components/events/ShowEvent';
 import Login from './components/admin/Login';
 import ShowAllEventCards from "./components/events/eventCards/ShowAllEventCards";
+import Resources from "./components/Resources";
 
 import EditEvent from './components/admin/EditEvent';
 import CreateEvent from './components/admin/CreateEvent';
@@ -24,18 +25,18 @@ import { verifyUser } from './actions';
 import './stylesheets/main.css';
 
 
-
 const App = (props) => {
-  // const  { pathname  } = useLocation();
+
   const { verifyUser, token } = props
 
-  // const heroImage = () => {
-  //   if(pathname === '/') {
-  //     return (
-  //       <div id="hero-image"></div>
-  //     )
-  //   }
-  // }
+  const toggleBurgerNav = (e) => {
+    const input = document.querySelector('nav input')
+    if (e.target.tagName === "LABEL" || e.target.tagName === "INPUT" ) {
+    } else {
+      input.checked = false;
+    }
+  }
+
   const verifyUserInApp = useCallback(() => {
     verifyUser()
   }, [verifyUser])
@@ -46,9 +47,7 @@ const App = (props) => {
 
   return (
 
-    <div id="nav-grid-container">
-      {/* {heroImage} */}
-      
+    <div id="nav-grid-container" onClick={(e) => toggleBurgerNav(e)}>      
       <BrowserRouter>
           <Header />
           <Routes>
@@ -58,12 +57,13 @@ const App = (props) => {
             <Route path="/events/:id" element={<ShowEvent />} />
             <Route path="/pastevents" element={<ShowAllEventCards />} />
             <Route path="/coaches" element={<Coaches />} />
+            <Route path="/resources" element={<Resources />} />
             {/* Admin Routes */}
             <Route path="/admin/createEvent" element={ !token ? <Login /> : <CreateEvent/> } />
             <Route path="/admin/editEvent/:id" element={ !token ? <Login /> : <EditEvent/> } />
           </Routes>
         </BrowserRouter>
-        {/* <EmailSubscribe /> */}
+        <EmailSubscribe />
         <Footer />
       
     </div>

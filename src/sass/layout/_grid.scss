@@ -3,7 +3,7 @@
 #nav-grid-container {
 	display: grid;
 	grid-template-columns: 15% 70% 15%;
-	grid-template-rows: 7vh 93vh auto auto auto
+	grid-template-rows: 7vh 93vh auto auto auto auto;
 }
 
 header {
@@ -42,21 +42,61 @@ header {
 
 #show-event {
 	grid-column: 2 / span 1;
+	grid-row: 2 / span 2;
 	@include slide-appear ;
-
+	// display: grid;
+	// grid-template-columns: 1fr 1fr;
 }
+
+#show-event-content {
+	//grid-column: 2 / span 1;
+	display: grid;
+	grid-template-columns: 20vw 1fr;
+}
+
+#event-box {
+    display: grid;
+	grid-template-columns: 20vw 1fr;
+	grid-template-rows: 1fr 1fr;
+	h1 {
+		grid-column: 1;
+		grid-row: 1;
+	}
+	a {
+		grid-column: 1;
+		grid-row: 2;
+	}
+	h3 {
+		grid-column: 2;
+		grid-row: 1;
+	}
+}
+
 
 #event-form {
 	grid-column: 2 / span 1;
 	grid-row: 2 / span 2;
 	@include slide-appear ;
 }
+#login-page {
+	grid-column: 2 / span 1;
+}
+
+#resources {
+	grid-column: 2/ span 1;
+	grid-row: 2/ span 3;
+}
+
+#email-subscribe {
+	grid-column: 2 / span 1;
+	grid-row: 5 /span 1;
+}
 
 footer {
 	grid-column: 1 / span 3;
 	display: grid;
 	grid-template-columns: 15% 70% 15%;
-	grid-row: 5 /span 1;
+	grid-row: 6 /span 1;
 	div {
 		grid-column: 2/ span 1;
 	}
@@ -77,19 +117,31 @@ footer {
 		// grid-template-rows: 7vh;
 		
 	}
-	
 }
+
+/* Extra small devices (phones, less than 600px wide) */
+@media only screen and (max-width: 1100px) {
+	#show-event-content {
+		grid-template-columns: auto;
+		// grid-template-rows: auto;
+	}
+}
+
+
+
+
 
 /* Small devices (portrait tablets & large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+// @media only screen and (min-width: 600px) {
 
-}
+// }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
 
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+
 
 }
 /* Extra large devices (large laptops & desktops, 1200px and up) */

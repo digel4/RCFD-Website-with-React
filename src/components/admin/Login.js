@@ -1,11 +1,11 @@
 import React from "react";
-import { adminLogin, adminLogout, setAdminName, verifyUser, setPassword } from '../../actions';
+import { adminLogin, setAdminName, verifyUser, setPassword } from '../../actions';
 import { connect } from 'react-redux';
 
 import  { useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
-  const { adminLogin, adminStatus, setAdminName, setPassword, verifyUser, adminLogout  } = props;
+  const { adminLogin, adminStatus, setAdminName, setPassword } = props;
   const navigate = useNavigate();
 
   const formSubmitHandler = e => {
@@ -20,7 +20,10 @@ const Login = (props) => {
   }
   
   return (
-    <div>
+    <div id="login-page">
+      <p>Login Credentials for Development Build</p>
+      <p>username: admin </p>
+      <p>password: DevelopmentTest</p>
       <form className="auth-form" onSubmit={formSubmitHandler}>
         <div class="form-group" FormGroup label="User" labelFor="userName">
           <input class="form-control"
@@ -42,12 +45,14 @@ const Login = (props) => {
             onChange={e => setPassword(e.target.value)}
           />
         </div>
-        <button className="btn btn-primary btn-block" type="submit" >Sign In</button>
+        <div className="buttons">
+          <button className="btn btn-primary btn-block" type="submit" >Sign-in</button>
+        </div>
       </form>
 
-      <button className="btn btn-primary btn-block" onClick={props.verifyUser}>verifyUser</button>
-      <button className="btn btn-primary btn-block" onClick={showState}>show state</button>
-      <button className="btn btn-primary btn-block" onClick={() => adminLogout(adminStatus.token)}>Log Out</button>
+      {/* <button className="btn btn-primary btn-block" onClick={props.verifyUser}>verifyUser</button>
+      <button className="btn btn-primary btn-block" onClick={showState}>show state</button> */}
+      
     </div>
   )
 }
@@ -60,5 +65,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { adminLogin, adminLogout, setAdminName, setPassword, verifyUser }
+  { adminLogin, setAdminName, setPassword, verifyUser }
 )(Login);

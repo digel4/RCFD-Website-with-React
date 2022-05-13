@@ -1,5 +1,5 @@
 
-/*Hero Styles*/
+@import '../abstracts/mixins';
 
 #hero{
 	height: 100%
@@ -23,20 +23,13 @@
 	justify-content: flex-end;
 	text-align: center;
     opacity: 0;
-    animation: 1s slidefade 1s forwards;
     padding-bottom: 100px;
+	@include slow-fade-in;
 }
 
 #learn-more {
 	h2 {
 		text-align: center;
-	}
-}
-
-@keyframes slidefade {
-	100% {
-		opacity: 1;
-		margin: 0;
 	}
 }
 
@@ -46,11 +39,6 @@
     justify-content: flex-end;
     align-items: center;
 	height: 70vh
-}
-
-
-.sign-up-btn {
-	opacity: 0%;
 }
 
 .events-gallery {
@@ -66,46 +54,12 @@
 }
 
 
-@media only screen and (max-width: 400px) {
-	body .hero-content-area {
-		padding-bottom: 10px;
-		padding-top: 0px;
-	}
-	
-	
-	body .card {
-		width: 19rem;
-		margin-left: 0px;
-		margin-right: 0px;
-	}
-	body .hero h1 {
-		font-size: 20px;
+@media only screen and (max-width: 600px) {
+	#learn-more {
+		text-align: center;
 	}
 
-	body .hero h3 {
-		font-size: 16px;
-	}
-}
-@media (max-width: 800px) {
-	.hero h1 {
-		font-size: 24px;
-	}
-
-	.hero h3 {
-		font-size: 20px;
-	}
-
-	.hero a.btn {
-		padding: 15px 40px;
-	}
-	
-	.hero-content-area {
-		opacity: 0;
-		animation: 1s slidefade 1s forwards;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		padding-bottom: 100px;
-		padding-top: 300px;
+	#events-gallery-container {
+		text-align: center;
 	}
 }

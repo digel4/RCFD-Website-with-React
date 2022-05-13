@@ -9,16 +9,17 @@ const convertDateToShortDate = (dateToShorten) => {
   }
 
   // Create Event Route
-router.post('/admin/createEvent', verifyUser, (req, res) => {
+router.post('/admin/createEvent', (req, res) => {
     console.log(req.body)
     const shortOption= {day: '2-digit', month: 'short'}
   
-    const { name, image, desc, endTime, startTime, businessName, streetName, streetNumber, city, postcode, eventURL, excerpt } = req.body
+    const { name, image, description, endTime, startTime, businessName, streetName, streetNumber, city, postcode, eventURL, excerpt } = req.body
     
       const longDate = req.body.date;
       const shortDate = new Date(req.body.date).toLocaleString('en-GB', shortOption);
   
-      const newEvent = {name, longDate, shortDate, image, description: desc, endTime, startTime, businessName, streetNumber, streetName, city, postcode, eventURL, excerpt  };
+      const newEvent = {name, longDate, shortDate, image, description, endTime, startTime, businessName, streetNumber, streetName, city, postcode, eventURL, excerpt  };
+      console.log("event about to be submitted to database on backend")
       console.log(newEvent)
     // Create a new event and save to DB
       Event.create(newEvent, (err, newlyCreated) => {

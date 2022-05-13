@@ -22,6 +22,7 @@ import {
   };
 
   export const adminLogout = (token) => async dispatch => {
+    console.log("hit logout")
     await events.get('/logout', { withCredentials: true, headers: {Authorization: `Bearer ${token}`} })
 
     dispatch ({ type: ADMIN_LOGOUT, payload: {
@@ -101,6 +102,7 @@ export const editEvent = (id, formValues) => async dispatch => {
 }
 
 export const createEvent = (formValues) => async dispatch => {
+  console.log(formValues)
   const response = await events.post('/admin/createEvent', {...formValues});
   dispatch({ type: CREATE_EVENT, payload: response.data })
 }

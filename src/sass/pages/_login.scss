@@ -1,0 +1,24 @@
+@use '../abstracts/variables' as var;
+
+#login-page {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //width: 60%;
+    form {
+        border: solid 2px var.$primary-orange;
+        border-radius: 10px;
+        width: 20%;
+        padding: 0.5rem;
+    }
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    button {
+        //width: 50%;
+        margin: 0.5rem;
+    }
+}
