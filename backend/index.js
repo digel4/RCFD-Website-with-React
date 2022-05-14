@@ -1,4 +1,5 @@
 const express        = require("express"),
+      path           = require('path'),
       app            = express(),
       body           = require("body-parser"),
 	    cookieParser   = require("cookie-parser"),
@@ -29,12 +30,13 @@ app.use(body.json())
 console.log(`cookie secret is ${process.env} `)
 app.use(cookieParser(process.env.COOKIE_SECRET))
 
+
 app.use(methodOverride("_method"));
 
 require("./strategies/JwtStrategy")
 require("./strategies/LocalStrategy")
 require("./authenticate")
-
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // Add the client URL to the CORS policy
 
@@ -65,6 +67,11 @@ const adminCRUDRouter = require("./routes/adminCRUDRoutes")
 const eventsRouter = require("./routes/eventsRoutes")
 const mailChimpRoutes = require("./routes/mailChimpRoutes")
 app.use(adminAuthRouter, adminCRUDRouter, eventsRouter, mailChimpRoutes )
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+});
+
 
 app.listen(3001, () => {
 	console.log("server listening on port 3001");
