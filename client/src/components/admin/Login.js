@@ -21,10 +21,37 @@ const Login = (props) => {
   
   return (
     <div id="login-page">
-      <p>Login Credentials for Development Build</p>
-      <p>username: admin </p>
-      <p>password: DevelopmentTest</p>
+      <div className="sign-in-instructions">
+        <p>Login Credentials for Development Build</p>
+        <p>username: admin </p>
+        <p>password: DevelopmentTest</p>
+      </div>
       <form className="auth-form" onSubmit={formSubmitHandler}>
+        {/* <div className="form-group" labelfor="User"> */}
+          <input className="form-control"
+            id="userName"
+            name="userName"
+            placeholder="User Name"
+            type="text"
+            value = { adminStatus.adminName }
+            onChange={e => setAdminName(e.target.value)}
+          />
+        {/* </div> */}
+        {/* <div className="form-group" labelfor="Password"> */}
+          <input className="form-control"
+            id="password"
+            placeholder="Password"
+            type="password"
+            name="password"
+            value={adminStatus.adminPassword}
+            onChange={e => setPassword(e.target.value)}
+          />
+        {/* </div> */}
+        <div className="buttons">
+          <button className="btn btn-primary btn-block" type="submit" >Sign-in</button>
+        </div>
+      </form>
+      {/* <form className="auth-form" onSubmit={formSubmitHandler}>
         <div class="form-group" FormGroup label="User" labelFor="userName">
           <input class="form-control"
             id="userName"
@@ -48,7 +75,7 @@ const Login = (props) => {
         <div className="buttons">
           <button className="btn btn-primary btn-block" type="submit" >Sign-in</button>
         </div>
-      </form>
+      </form> */}
 
       {/* <button className="btn btn-primary btn-block" onClick={props.verifyUser}>verifyUser</button>
       <button className="btn btn-primary btn-block" onClick={showState}>show state</button> */}

@@ -29,9 +29,9 @@ const ShowAllEventCards = (props) => {
                     </strong>
                 </h1>
                 <div className="events-gallery">
-                    <div className="row">
+                    {/* <div className="row"> */}
                         {renderList()}
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
             <div id="more-info-box-title">

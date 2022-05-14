@@ -51,6 +51,43 @@ a:hover {
     opacity: 1;
   }
 }
+.green-blue {
+  background-color: #426F7E;
+}
+
+.primary-orange {
+  background-color: #EB600B;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top-color: currentcolor;
+  border-top-style: none;
+  border-top-width: 0px;
+  border-top: 1px solid #444444;
+}
+
+div.item:hover img {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+div.item:hover p {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+div.item:hover h3 {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+a:hover {
+  color: #EB600B;
+}
+
 .container {
   width: 70%;
   margin: auto;
@@ -386,7 +423,7 @@ header div {
   display: grid;
   grid-column: 2/span 1;
   grid-row: 2/span 2;
-  grid-template-rows: 100vh auto auto;
+  grid-template-rows: 90vh auto auto;
 }
 
 #coaches {
@@ -725,7 +762,6 @@ a:hover {
   color: white;
   background-color: #F59719;
   border-color: #F59719;
-  display: inline;
   margin-left: auto;
   margin-right: auto;
 }
@@ -740,6 +776,67 @@ a:hover {
   color: white;
   background-color: #EB600B;
   border-color: #EB600B;
+}
+
+.custom-card {
+  margin: 5%;
+  position: relative;
+  width: 25%;
+  height: 20rem;
+  box-shadow: 0px 30px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.custom-card .custom-card-content-hidden button {
+  background-color: red;
+  transition: 0.2s;
+}
+.custom-card .custom-card-content-hidden button:hover {
+  background-color: maroon;
+}
+
+.custom-card-content-initial {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 10%;
+  top: 0;
+  width: 80%;
+  height: 35%;
+  background-color: white;
+  text-align: center;
+  transition: 0.5s;
+}
+.custom-card-content-initial p {
+  transition: 0.5s;
+}
+
+.custom-card-content-hidden {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 10%;
+  bottom: -100%;
+  height: 100%;
+  width: 80%;
+  text-align: center;
+  background-color: white;
+  transition: 0.5s;
+}
+
+.custom-card-image {
+  width: 100%;
+  height: 20rem;
+}
+
+.custom-card:hover .custom-card-content-hidden {
+  bottom: 0;
+}
+
+.custom-card:hover .custom-card-content-initial {
+  opacity: 0;
 }
 
 .testTest {
@@ -806,64 +903,17 @@ a:hover {
   margin: 0.5rem;
 }
 
+.events-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 #events-tab {
   border: 2px solid black;
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-left: 0;
   padding-right: 2rem;
-}
-
-.card {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border-radius: 0.25rem;
-  border: none;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  margin-left: 1.5rem;
-  margin-right: 1rem;
-  width: 24rem;
-}
-
-.card-img-top {
-  position: absolute;
-  height: 58%;
-  object-fit: cover;
-}
-
-.card-img-overlay {
-  position: relative;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 1.25rem;
-  padding-right: 1rem;
-}
-
-.card-body {
-  border-bottom: 4px solid rgba(0, 0, 0, 0.15);
-  border-right: 4px solid rgba(0, 0, 0, 0.15);
-  background-color: white;
-  margin-top: 10em;
-  width: 90%;
-}
-
-.card-date {
-  border-bottom: 4px solid rgba(0, 0, 0, 0.15);
-  border-right: 4px solid rgba(0, 0, 0, 0.15);
-  background-color: white;
-  position: absolute;
-  bottom: 85%;
-  left: 95%;
-  transform: translate(-50%, -50%);
-  height: 4rem;
 }
 
 #learn-more {
@@ -992,10 +1042,8 @@ a:hover {
   height: 70vh;
 }
 
-.events-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  Flex-basis: 350px;
+#events-gallery-container .btn {
+  width: 14rem;
 }
 
 #landing-quote-box {
@@ -1147,10 +1195,14 @@ a:hover {
   align-items: center;
 }
 #login-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: solid 2px #EB600B;
   border-radius: 10px;
   width: 20%;
-  padding: 0.5rem;
+  padding: 2rem;
 }
 #login-page .buttons {
   display: flex;

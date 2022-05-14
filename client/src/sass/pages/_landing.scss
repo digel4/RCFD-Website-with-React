@@ -40,12 +40,12 @@
     align-items: center;
 	height: 70vh
 }
-
-.events-gallery {
-	display: flex;
-	flex-wrap:wrap;
-	Flex-basis: 350px;
+#events-gallery-container {
+	.btn {
+		width: 14rem;
+	}
 }
+
 
 #landing-quote-box {
 	background-color: #426F7E;

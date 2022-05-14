@@ -32,7 +32,7 @@ const Header = () => {
                     {/* <a href="https://www.midlandsengine.org/"><img src="/images/me-white.svg" className="midlands-engine-logo" alt="Midlands Engine logo" ></img></a>  */}
                 </div>
                 <nav>
-                    <label for="hamburger">&#9776;</label>
+                    <label htmlFor="hamburger">&#9776;</label>
                     <input type="checkbox" id="hamburger" />
                     <div id="ham-items">
                         <Link className="active" onClick={() => activateLi(1)} to="/" ><li><strong>Home</strong></li></Link>

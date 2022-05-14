@@ -1,6 +1,5 @@
 @use '../abstracts/variables' as var;
 
-
 .btn-primary {
 	color: white;
 	background-color: var.$primary-orange;
@@ -17,7 +16,7 @@
 	color: white;
 	background-color: var.$secondary-orange;
     border-color: var.$secondary-orange;
-	display: inline;
+	// display: inline;
 	margin-left: auto;
 	margin-right: auto;
 }

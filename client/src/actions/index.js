@@ -39,12 +39,12 @@ import {
       const data =  response.data
       dispatch ({ type: "VERIFY_USER", payload: data })
     } else {
-        console.log("something went wrong!")
-        dispatch ({ type: "VERIFY_USER", payload: { token: null } })
-      }
+      console.log("something went wrong!")
+      dispatch ({ type: "VERIFY_USER", payload: { token: null } })
+    }
       // call refreshToken every 5 minutes to renew the authentication token.
       setTimeout(verifyUser, 5 * 60 * 1000)
-    };
+  };
 
   // ADMIN LOGIN SET STATE ACTIONS
 
@@ -102,7 +102,7 @@ export const editEvent = (id, formValues) => async dispatch => {
 }
 
 export const createEvent = (formValues) => async dispatch => {
-  console.log(formValues)
+  //console.log(formValues)
   const response = await events.post('/admin/createEvent', {...formValues});
   dispatch({ type: CREATE_EVENT, payload: response.data })
 }
