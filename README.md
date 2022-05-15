@@ -138,7 +138,7 @@ Project Link: [https://github.com/digel4/RCFD-Website-with-React](https://github
 [issues-shield]: https://img.shields.io/github/issues/digel4/RCFD-Website-with-React.svg?style=for-the-badge
 [issues-url]: https://github.com/digel4/RCFD-Website-with-React/issues
 [license-shield]: https://img.shields.io/github/license/digel4/RCFD-Website-with-React.svg?style=for-the-badge
-[license-url]: https://github.com/digel4/RCFD-Website-with-React/blob/master/LICENSE.txt
+[license-url]: https://opensource.org/licenses/MIT
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/oliver-fox-uk/
 [product-screenshot]: images/screenshot.png
