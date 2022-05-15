@@ -40,12 +40,12 @@
 
   <p align="center">
     A website built for Real Creative Futures Digital. RCFD is a part of the Big House project in Nottingham, UK. The Big House is to help Creative and Digital businesses to grow and create new jobs in the region, from potential start-ups and new entrepreneurs, to established SMEs looking to expand and bring new products and services to market. Support on offer includes one-to- one advice, workshops, networking events and grant funding.
-    <a href="https://github.com/digel4/rcfd-website"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/digel4/RCFD-Website-with-React"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://rcfd-react.herokuapp.com/">View Demo</a>
     ·
-    <a href="https://github.com/digel4/rcfd-website/issues">Report Bug</a>
+    <a href="https://github.com/digel4/RCFD-Website-with-React/issues">Report Bug</a>
   </p>
 </div>
 
@@ -143,15 +143,3 @@ Project Link: [https://github.com/digel4/RCFD-Website-with-React](https://github
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/oliver-fox-uk/
 [product-screenshot]: https://user-images.githubusercontent.com/58178649/168470828-5368c1d5-40ad-4cba-8ba4-c504b66bb87c.png
-
-
-<!-- ![RCF-d homepage](https://user-images.githubusercontent.com/58178649/168470828-5368c1d5-40ad-4cba-8ba4-c504b66bb87c.png) -->
-
-
-<!-- 
-![Contributors][contributors-shield](https://github.com/digel4/RCFD-Website-with-React/graphs/contributors)
-![Forks][forks-shield][forks-url)
-![Stargazers][stars-shield](stars-url)
-![Issues][issues-shield](https://github.com/digel4/RCFD-Website-with-React/issues)
-![MIT License][license-shield](https://opensource.org/licenses/MIT)
-![LinkedIn][linkedin-shield](https://www.linkedin.com/in/oliver-fox-uk/) -->
