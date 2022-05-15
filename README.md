@@ -33,19 +33,16 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Real Craetive Futures Digital Website</h3>
 
   <p align="center">
-    project_description
+    A website built for Real Creative Futures Digital. RCFD is a part of the Big House project in Nottingham, UK. The Big House is to help Creative and Digital businesses to grow and create new jobs in the region, from potential start-ups and new entrepreneurs, to established SMEs looking to expand and bring new products and services to market. Support on offer includes one-to- one advice, workshops, networking events and grant funding.
+    <a href="https://github.com/digel4/rcfd-website"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://rcfd-react.herokuapp.com/">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/digel4/rcfd-website/issues">Report Bug</a>
   </p>
 </div>
 
@@ -57,6 +54,7 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
+        The aim of the project was to build an attractive SPA which could display all the events being run by Real Creative Futures. The events were stored using MongoDB. There is a also a basic content management system so a website admin can delete, modify and create new events and display them on the website. The admin login system uses a cookied based authorisation so there are no page refreshes during the login. 
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
