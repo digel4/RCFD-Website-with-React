@@ -32,8 +32,9 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+    <img src="https://user-images.githubusercontent.com/58178649/168470664-5e7a99d2-9e05-46a0-8e79-50c84812fdac.png" alt="Logo" width="80" height="80">
+<!--   </a> ![RCF-logo](https://user-images.githubusercontent.com/58178649/168470664-5e7a99d2-9e05-46a0-8e79-50c84812fdac.png) -->
+
 
 <h3 align="center">Real Craetive Futures Digital Website</h3>
 
@@ -141,8 +142,10 @@ Project Link: [https://github.com/digel4/RCFD-Website-with-React](https://github
 [license-url]: https://opensource.org/licenses/MIT
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/oliver-fox-uk/
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: (https://user-images.githubusercontent.com/58178649/168470828-5368c1d5-40ad-4cba-8ba4-c504b66bb87c.png
 
+
+![RCF-d homepage](https://user-images.githubusercontent.com/58178649/168470828-5368c1d5-40ad-4cba-8ba4-c504b66bb87c.png)
 
 
 <!-- 
