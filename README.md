@@ -61,19 +61,8 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -85,7 +74,7 @@
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 
- <p>The aim of the project was to build an attractive SPA which could display all the events being run by Real Creative Futures. The events were stored using MongoDB. There is a also a basic content management system so a website admin can delete, modify and create new events and display them on the website. The admin login system uses a cookied based authorisation so there are no page refreshes during the login.</p>
+ <p>The aim of the project was to build an attractive SPA which could display all the events being run by Real Creative Futures. The events were stored using MongoDB. There is a also a basic content management system so a website admin can delete, modify and create new events and display them on the website. The admin login system uses a cookie based authorisation so there are no page refreshes during the login.</p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -95,8 +84,9 @@
 
 * [React.js](https://reactjs.org/)
 * [Redux](https://react-redux.js.org/)
-* [Express](https://expressjs.com/)
+* [Express.js](https://expressjs.com/)
 * [JSON Web Tokens](https://jwt.io/)
+* [Passport.js](http://www.passportjs.org/)
 * [MongoDB](https://www.mongodb.com/)
 
 
