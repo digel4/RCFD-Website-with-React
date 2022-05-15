@@ -24,6 +24,13 @@
 ![MIT License][license-shield](https://opensource.org/licenses/MIT)
 ![LinkedIn][linkedin-shield](https://www.linkedin.com/in/oliver-fox-uk/)
 
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/oliver-fox-uk/]
+
 
 
 <!-- PROJECT LOGO -->
