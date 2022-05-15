@@ -33,7 +33,7 @@
 <div align="center">
   <a href="https://github.com/digel4/RCFD-Website-with-React">
     <img src="https://user-images.githubusercontent.com/58178649/168470664-5e7a99d2-9e05-46a0-8e79-50c84812fdac.png" alt="Logo" width="80" height="80">
-<!--   </a> ![RCF-logo](https://user-images.githubusercontent.com/58178649/168470664-5e7a99d2-9e05-46a0-8e79-50c84812fdac.png) -->
+  </a>
 
 
 <h3 align="center">Real Craetive Futures Digital Website</h3>
