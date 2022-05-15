@@ -120,7 +120,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Oliver Foox - [Website](https://oliverfox.uk/) - [LinkedIn](https://www.linkedin.com/in/oliver-fox-uk/) - hello@oliverfox.uk
+Oliver Fox - [Website](https://oliverfox.uk/) - [LinkedIn](https://www.linkedin.com/in/oliver-fox-uk/) - hello@oliverfox.uk
 
 Project Link: [https://github.com/digel4/RCFD-Website-with-React](https://github.com/digel4/RCFD-Website-with-React)
 
