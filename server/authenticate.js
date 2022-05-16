@@ -1,8 +1,8 @@
-const passport = require("passport")
-const jwt = require("jsonwebtoken")
-const { useResolvedPath } = require("react-router-dom")
-const admin = require("./models/admin")
-const dev = process.env.NODE_ENV !== "production"
+const passport = require("passport");
+const jwt = require("jsonwebtoken");
+// const { useResolvedPath } = require("react-router-dom")
+const admin = require("./models/admin");
+const dev = process.env.NODE_ENV !== "production";
 
 exports.COOKIE_OPTIONS = {
   httpOnly: true,
