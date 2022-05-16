@@ -354,6 +354,7 @@ nav input {
   }
   nav input {
     display: block;
+    visibility: hidden;
   }
 
   #ham-items {
