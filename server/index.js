@@ -41,25 +41,26 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // Add the client URL to the CORS policy
 
-// const whitelist = process.env.WHITELISTED_DOMAINS
-//   ? process.env.WHITELISTED_DOMAINS.split(",")
-//   : []
+const whitelist = process.env.WHITELISTED_DOMAINS
+  ? process.env.WHITELISTED_DOMAINS.split(",")
+  : []
 
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      console.log(whitelist)
+      console.log(origin)
+      callback(new Error("Not allowed by CORS"))
+    }
+  },
 
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (!origin || whitelist.indexOf(origin) !== -1) {
-//       callback(null, true)
-//     } else {
-//       callback(new Error("Not allowed by CORS"))
-//     }
-//   },
+  credentials: true,
+}
 
-//   credentials: true,
-// }
-
-// app.use(cors(corsOptions))
-app.use(cors());
+app.use(cors(corsOptions))
+// app.use(cors());
 
 app.use(passport.initialize())
 
