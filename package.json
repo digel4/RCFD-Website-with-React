@@ -1,0 +1,17 @@
+{
+  "name": "rcfd-website-with-react",
+  "version": "1.0.0",
+  "description": "the RCFD website rebuilt in React",
+  "main": "index.js",
+  "scripts": {    
+    "start:client": "cd client && npm start",    
+    "start:server": "cd server && npm start",    
+    "dev:server": "cd server && npm dev",    
+    "start": "node server/index.js",    
+    "heroku-postbuild": "cd server && npm install && cd ../client && npm install && npm run build"  
+  },  
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}

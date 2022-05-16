@@ -1,5 +1,6 @@
 const express        = require("express"),
       path           = require('path'),
+      PORT = process.env.PORT || 3001,
       app            = express(),
       body           = require("body-parser"),
 	    cookieParser   = require("cookie-parser"),
@@ -68,11 +69,17 @@ const eventsRouter = require("./routes/eventsRoutes")
 const mailChimpRoutes = require("./routes/mailChimpRoutes")
 app.use(adminAuthRouter, adminCRUDRouter, eventsRouter, mailChimpRoutes )
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-});
+// The section below is to serve React on heroku server
+if (process.env.NODE_ENV === "production") {
+  // Serve any static files
+  app.use(express.static(path.resolve(__dirname, "../client/build")));
+   // Handle React routing, return all requests to React app  
+   app.get("*", function (req, res) {
+    res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+   });
+};
 
 
-app.listen(3001, () => {
-	console.log("server listening on port 3001");
+app.listen(PORT, () => {
+	console.log(`server listening on port ${PORT}`);
 });
