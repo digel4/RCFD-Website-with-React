@@ -13,7 +13,7 @@ const eventCRUDReducer = (state = {}, action) => {
       return { ...state, [action.payload.id]: action.payload  };
     case DELETE_EVENT:
       // omit doesn't change original state object  so dont need to create new object through spread syntax
-      return _.omit(state, action.payload)
+      return _.omit(state, action.payload);
     default:
         return state;
     }

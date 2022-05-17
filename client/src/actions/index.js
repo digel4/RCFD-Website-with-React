@@ -2,6 +2,7 @@ import events from '../APIS/events';
 import { 
     CREATE_EVENT,
     FETCH_EVENT,
+    CLEAR_SELECTED_EVENT,
     FETCH_CURREVENTS,
     FETCH_PASTEVENTS,
     EDIT_EVENT,
@@ -88,6 +89,14 @@ import {
     const response = await events.get(`/events/${id}`);
     response.data.longDateAsString = new Date(response.data.longDate).toLocaleString('en-GB', {weekday: "long", day: '2-digit', month: 'long', year: "numeric"});
     dispatch({ type: FETCH_EVENT, payload: response.data });
+  };
+
+  export const clearSelectedEvent = () => async dispatch => {
+
+    console.log("triggered clear selected event")
+    // const payload = null;
+
+    dispatch({ type: CLEAR_SELECTED_EVENT, payload: null });
   };
 
 // EVENT CRUD ACTIONS

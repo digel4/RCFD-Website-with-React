@@ -782,7 +782,7 @@ a:hover {
 .custom-card {
   margin: 5%;
   position: relative;
-  width: 25%;
+  width: 22rem;
   height: 20rem;
   box-shadow: 0px 30px 30px rgba(0, 0, 0, 0.5);
   overflow: hidden;
@@ -803,13 +803,16 @@ a:hover {
   left: 10%;
   top: 0;
   width: 80%;
-  height: 35%;
+  height: 8rem;
+  padding: 0.5rem;
   background-color: white;
+  justify-content: center;
   text-align: center;
   transition: 0.5s;
 }
 .custom-card-content-initial p {
   transition: 0.5s;
+  margin-bottom: 0;
 }
 
 .custom-card-content-hidden {

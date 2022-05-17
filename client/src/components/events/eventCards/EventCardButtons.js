@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { } from '../../../actions';
+import { connect } from 'react-redux';
 import events from '../../../APIS/events';
 
 
@@ -7,6 +9,8 @@ const EventCardButtons = (props) => {
     const deleteEvent = async () => {
         await events.delete(`/admin/${id}`)
     }
+
+
     if (token) { 
         return (
             <p className="body-copy-black card-text text-center">
@@ -26,4 +30,22 @@ const EventCardButtons = (props) => {
 }
 
 
-export default EventCardButtons
+const mapStateToProps = state => {
+    return {
+        // currEvents: state.events.currEvents,
+        // pastEvents: state.events.pastEvents,
+        // token: state.admin.token,
+        //adminStatus: { ...state.admin }
+
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { 
+        // fetchCurrEvents, 
+        // fetchPastEvents,
+        // adminLogout
+    }
+)(EventCardButtons);
+

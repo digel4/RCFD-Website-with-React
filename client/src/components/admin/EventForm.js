@@ -1,7 +1,7 @@
 import SunEditor from 'suneditor-react'
 import { useRef, useEffect } from 'react';
-import {editEvent, createEvent, setBusinessName, setCity, setDate, setDescription, setEndTime, setEventURL, setExcerpt, setImage, setName, setPassword, setPostcode, setStartTime, setStreetNumber, setStreetName } from '../../actions'
-import { connect } from 'react-redux';
+import {clearSelectedEvent, editEvent, createEvent, setBusinessName, setCity, setDate, setDescription, setEndTime, setEventURL, setExcerpt, setImage, setName, setPassword, setPostcode, setStartTime, setStreetNumber, setStreetName } from '../../actions'
+import { connect, useDispatch  } from 'react-redux';
 import 'suneditor/dist/css/suneditor.min.css'; 
 const EventForm = (props) => {
     const { selectedEvent,
@@ -25,6 +25,7 @@ const EventForm = (props) => {
         console.log("state is:")
         console.log(props.state)
     }
+    const dispatch = useDispatch()
 
     useEffect( () => {
         if(selectedEvent) {
@@ -42,6 +43,8 @@ const EventForm = (props) => {
             setStreetNumber(selectedEvent.streetNumber)
             setStreetName(selectedEvent.streetName)
         }
+        // clearSelectedEvent()
+        return () => dispatch(clearSelectedEvent())
      }, []);
 
     const editor = useRef();
@@ -49,13 +52,16 @@ const EventForm = (props) => {
     const getSunEditorInstance = (sunEditor) => {
         editor.current = sunEditor;
     };
+
+    const formTitle = () => selectedEvent ? "Edit Event" : "Create New Event"
+    
    
 
     return (
     <div id="event-form" style={{ width: "80%", margin: "auto" }}>
         <form id="form" action="/admin/new" onSubmit={formSubmitHandler}>
             <h1>	
-                Create a new event
+                {formTitle()}
             </h1>
             <div className="form-group">
                 <label>Name: </label>
@@ -82,7 +88,7 @@ const EventForm = (props) => {
                 <input className="form-control" type="text" name="image" placeholder="image url" value={eventInfo.image} onChange={e => setImage(e.target.value)}/>
             </div>
             <h1>
-                address
+                Address
             </h1>
             <div className="form-group">
                 <label>Business Name:</label>
@@ -146,6 +152,6 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { editEvent, createEvent, setBusinessName, setCity, setDate, setDescription, setEndTime, setEventURL, setExcerpt, setImage, setName, setPassword, setPostcode, setStartTime, setStreetNumber, setStreetName }
+    { editEvent, createEvent, setBusinessName, setCity, setDate, setDescription, setEndTime, setEventURL, setExcerpt, setImage, setName, setPassword, setPostcode, setStartTime, setStreetNumber, setStreetName, clearSelectedEvent }
     )(EventForm);
 
