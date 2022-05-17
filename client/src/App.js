@@ -38,6 +38,7 @@ const App = (props) => {
   }
 
   const verifyUserInApp = useCallback(() => {
+    console.log("verifying user")
     verifyUser()
   }, [verifyUser])
 

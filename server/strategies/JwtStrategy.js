@@ -6,7 +6,7 @@ const Admin = require("../models/admin")
 const opts = {}
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken()
 opts.secretOrKey = process.env.JWT_SECRET
-console.log(opts)
+// console.log(opts)
 
 
 passport.use(

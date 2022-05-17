@@ -60,7 +60,7 @@ const EventForm = (props) => {
     <div id="event-form" style={{ width: "80%", margin: "auto" }}>
         <form id="form" action="/admin/new" onSubmit={formSubmitHandler}>
             <h1>	
-                {formTitle()}
+                { formTitle() }
             </h1>
             <div className="form-group">
                 <label>Name: </label>

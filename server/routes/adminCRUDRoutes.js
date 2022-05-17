@@ -9,7 +9,7 @@ const convertDateToShortDate = (dateToShorten) => {
   }
 
   // Create Event Route
-router.post('/admin/createEvent', (req, res) => {
+router.post('/admin/createEvent', verifyUser, (req, res) => {
     console.log(req.body)
     const shortOption= {day: '2-digit', month: 'short'}
   
@@ -36,7 +36,7 @@ router.post('/admin/createEvent', (req, res) => {
   });
   
   // DELETE EVENT ROUTE
-  router.delete('/admin/:id', (req, res) => {
+  router.delete('/admin/:id', verifyUser,  (req, res) => {
       // res.send("you have reached the delete route");
     console.log("hit delte route")
     console.log(req.params)
@@ -51,7 +51,7 @@ router.post('/admin/createEvent', (req, res) => {
 
   //UPDATE EVENT ROUTE
   
-  router.put("/admin/:id", (req,res) => {
+  router.put("/admin/:id", verifyUser,  (req,res) => {
       // Find and update the correct event with the updatedEventObj
     console.log(req.body)
     const updatedEventObj = {...req.body,longDate: req.body.date, shortDate: convertDateToShortDate(req.body.date) }

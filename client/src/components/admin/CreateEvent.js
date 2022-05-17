@@ -35,7 +35,7 @@ const CreateEvent = (props) => {
             streetNumber,
             streetName
         }
-        props.createEvent(formValues);
+        props.createEvent(formValues, props.token);
         navigate("/events", { replace:true })
         
       }
@@ -50,6 +50,7 @@ const CreateEvent = (props) => {
 const mapStateToProps = state => {
     return {
         eventInfo: {...state.admin},
+        token: state.admin.token
     }
 }
 

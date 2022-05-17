@@ -7,7 +7,10 @@ import events from '../../../APIS/events';
 const EventCardButtons = (props) => {
     const { id, token } = props;
     const deleteEvent = async () => {
-        await events.delete(`/admin/${id}`)
+        await events.delete(`/admin/${id}`, {}, { 
+            withCredentials: true, 
+            headers: {Authorization: `Bearer ${token}`}
+        })
     }
 
 

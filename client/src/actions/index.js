@@ -100,19 +100,19 @@ import {
   };
 
 // EVENT CRUD ACTIONS
-export const deleteEvent = (id) => async dispatch => {
-  const response = await events.delete(`/events/${id}`);
+export const deleteEvent = (id,token) => async dispatch => {
+  const response = await events.delete(`/events/${id}`, {}, { withCredentials: true, headers: {Authorization: `Bearer ${token}`} } );
   dispatch({ type: DELETE_EVENT, payload: response.data })
 }
 
-export const editEvent = (id, formValues) => async dispatch => {
-  const response = await events.put(`/admin/${id}`, {...formValues});
+export const editEvent = (id, formValues, token) => async dispatch => {
+  const response = await events.put(`/admin/${id}`, {...formValues}, { withCredentials: true, headers: {Authorization: `Bearer ${token}`} } );
   dispatch({ type: EDIT_EVENT, payload: response.data })
 }
 
-export const createEvent = (formValues) => async dispatch => {
+export const createEvent = (formValues, token) => async dispatch => {
   //console.log(formValues)
-  const response = await events.post('/admin/createEvent', {...formValues});
+  const response = await events.post('/admin/createEvent', {...formValues}, { withCredentials: true, headers: {Authorization: `Bearer ${token}`} } );
   dispatch({ type: CREATE_EVENT, payload: response.data })
 }
 

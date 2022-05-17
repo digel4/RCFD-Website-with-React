@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
-const Event = require("../models/event")
+const Event = require("../models/event");
+const { verifyUser } = require("../authenticate")
 
 router.get("/pastevents", (req, res) => {
 	// Get all events from DB
@@ -34,7 +35,7 @@ router.get("/events", (req, res) => {
 });
 
 router.get("/events/:id", (req, res) => {
-	// Get all events from DB
+	// Get event from DB
 	Event.findById(req.params.id, (err, foundEvent) => {
 		if (err) {
 			console.log(err)

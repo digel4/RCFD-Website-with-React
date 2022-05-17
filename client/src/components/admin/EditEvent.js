@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import  { useNavigate } from 'react-router-dom';
 
 const EditEvent = (props) => {
-    const  {eventInfo, editEvent, fetchEvent, selectedEvent } = props;
+    const  {eventInfo, editEvent, fetchEvent, selectedEvent, token } = props;
 
     const { id } = useParams()
     const navigate = useNavigate()
@@ -42,7 +42,7 @@ const EditEvent = (props) => {
             streetNumber,
             streetName
         }
-        editEvent(id, formValues);
+        editEvent(id, formValues, token);
         navigate("/events", { replace:true })
       }
 
@@ -67,7 +67,8 @@ const EditEvent = (props) => {
 const mapStateToProps = state => {
     return {
         eventInfo: {...state.admin},
-        selectedEvent: state.events.selectedEvent
+        selectedEvent: state.events.selectedEvent,
+        token: state.admin.token
     }
 }
 
