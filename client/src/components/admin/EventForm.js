@@ -43,7 +43,6 @@ const EventForm = (props) => {
             setStreetNumber(selectedEvent.streetNumber)
             setStreetName(selectedEvent.streetName)
         }
-        // clearSelectedEvent()
         return () => dispatch(clearSelectedEvent())
      }, []);
 
