@@ -18,6 +18,7 @@ const ShowAllEventCards = (props) => {
         if(token) {
             return (
                 <div id="admin-control-panel">
+                    <p>For Development Purposes</p>
                     <h3>Admin Control Panel</h3>
                     <div className="admin-control-panel-buttons">
                         <Link to="/admin/createEvent" className="btn btn-primary">Create Event</Link>

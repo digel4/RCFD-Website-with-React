@@ -406,7 +406,7 @@ nav input {
 #nav-grid-container {
   display: grid;
   grid-template-columns: 15% 70% 15%;
-  grid-template-rows: 7vh 93vh auto auto auto auto;
+  grid-template-rows: 9vh 91vh auto auto auto auto;
 }
 
 header {
@@ -897,11 +897,52 @@ a:hover {
     width: 100%;
   }
 }
+.green-blue {
+  background-color: #426F7E;
+}
+
+.primary-orange {
+  background-color: #EB600B;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top-color: currentcolor;
+  border-top-style: none;
+  border-top-width: 0px;
+  border-top: 1px solid #444444;
+}
+
+div.item:hover img {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+div.item:hover p {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+div.item:hover h3 {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+a:hover {
+  color: #EB600B;
+}
+
 #admin-control-panel {
+  margin-top: 2rem;
   display: flex;
   align-items: center;
-  width: 25%;
+  width: 20rem;
   flex-direction: column;
+  padding: 1rem;
+  border: 2px solid #EB600B;
+  border-radius: 10px;
 }
 #admin-control-panel .admin-control-panel-buttons {
   width: 100%;

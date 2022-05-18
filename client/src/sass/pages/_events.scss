@@ -1,8 +1,14 @@
+@use '../abstracts/variables' as var;
+
 #admin-control-panel {
+	margin-top: 2rem;
 	display: flex;
 	align-items: center;
-	width: 25%;
+	width: 20rem;
 	flex-direction: column;
+	padding: 1rem;
+	border: 2px solid var.$primary-orange;
+	border-radius: 10px;
 	.admin-control-panel-buttons {
 		width: 100%;
 		display: flex;
