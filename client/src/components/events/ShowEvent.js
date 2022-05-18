@@ -70,17 +70,18 @@ const ShowEvent = (props) => {
                         parse(selectedEvent.description) 
                         } 
                     </div>
-                    <div id="event-box-extra-info" style={{ backgroundColor: "#2E8B57" }}>
-                        <h1 className="h2-white"><strong>Attend This Event</strong></h1>
-                        <div style={{ backgroundColor: "#426F7E"}}>
-                            <h3 className="h3-white">New to the Big House?<br/>Sign up with us first...</h3>
-                            <a href="https://bighouse.org.uk/#" target="_blank" className="h2-white btn btn-primary">Sign-up</a>
-                        </div>
-                        <div style={{ backgroundColor: "#426F7E"}}>
-                            <h3 className="h3-white">Already signed up?<br/>Book your free place now</h3>
-                            <a href={ selectedEvent.eventURL } target="_blank" className="h2-white btn btn-primary">Book Now</a>
-                        </div>
-                    </div>
+
+                </div>
+            </div>
+            <div id="event-box-extra-info" style={{ backgroundColor: "#2E8B57" }}>
+                <h1 className="h2-white"><strong>Attend This Event</strong></h1>
+                <div style={{ backgroundColor: "#426F7E"}}>
+                    <h3 className="h3-white">New to the Big House?<br/>Sign up with us first...</h3>
+                    <a href="https://bighouse.org.uk/#" target="_blank" className="h2-white btn btn-primary">Sign-up</a>
+                </div>
+                <div style={{ backgroundColor: "#426F7E"}}>
+                    <h3 className="h3-white">Already signed up?<br/>Book your free place now</h3>
+                    <a href={ selectedEvent.eventURL } target="_blank" className="h2-white btn btn-primary">Book Now</a>
                 </div>
             </div>
         </div>

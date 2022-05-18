@@ -2,6 +2,9 @@
 
     display: flex;
     flex-direction: column;
+    width: 85.5%;
+    margin: auto;
+    margin-bottom: 3rem;
     h1 {
         display:flex;
         justify-content: space-around;
@@ -69,6 +72,11 @@
         }
         h3 {
             order: 2;
+        }
+        .event-box-excerpt {
+            width: 100%;
+            margin: 0;
+            padding: 3rem 0 3rem 0;
         }
     }
 

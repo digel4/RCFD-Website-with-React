@@ -11,6 +11,7 @@
 	}
 }
 
+
 .events-gallery {
 	display: flex;
 	// align-items: flex-start;
@@ -105,3 +106,19 @@
 
 
 
+@media only screen and (max-width: 600px) {
+	#admin-control-panel {
+		display: flex;
+		margin-top: 2rem;
+		align-items: center;
+		width: 100%;
+		flex-direction: column;
+		.admin-control-panel-buttons {
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			margin: 0.5rem;
+		}
+	}
+
+}

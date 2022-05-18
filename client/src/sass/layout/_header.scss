@@ -7,8 +7,10 @@ header {
 	color: white;
 	z-index:10;
 	background-color: var.$secondary-orange;
+	height: 9vh;
 	div {
 		display: flex;
+		height: 9vh;
 		justify-content: space-between;
 		align-items: center;
 	}
@@ -35,7 +37,7 @@ header {
 	header {
 		position: fixed;
 		width: 100%;
-		height: 7vh;
+		height: 9vh;
 		div {
 			z-index: 10;
 		}

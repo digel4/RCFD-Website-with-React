@@ -361,7 +361,7 @@ nav input {
     animation: appear 0.5s forwards;
     position: absolute;
     z-index: 2;
-    top: 7vh;
+    top: 9vh;
     display: none;
     flex-direction: column;
     height: 30vh;
@@ -642,10 +642,12 @@ header {
   color: white;
   z-index: 10;
   background-color: #F59719;
+  height: 9vh;
   animation: 1s fade-in 0.5s forwards;
 }
 header div {
   display: flex;
+  height: 9vh;
   justify-content: space-between;
   align-items: center;
 }
@@ -662,7 +664,7 @@ header div {
   header {
     position: fixed;
     width: 100%;
-    height: 7vh;
+    height: 9vh;
   }
   header div {
     z-index: 10;
@@ -821,6 +823,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   position: absolute;
+  padding: 1rem;
   left: 10%;
   bottom: -100%;
   height: 100%;
@@ -985,6 +988,21 @@ a:hover {
   display: flex;
 }
 
+@media only screen and (max-width: 600px) {
+  #admin-control-panel {
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+  }
+  #admin-control-panel .admin-control-panel-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0.5rem;
+  }
+}
 @keyframes slide {
   from {
     margin-top: -50%;
@@ -1064,10 +1082,17 @@ a:hover {
   #events-gallery-container {
     text-align: center;
   }
+  #events-gallery-container .events-gallery {
+    display: flex;
+    justify-content: center;
+  }
 }
 #event-box-extra-info {
   display: flex;
   flex-direction: column;
+  width: 85.5%;
+  margin: auto;
+  margin-bottom: 3rem;
 }
 #event-box-extra-info h1 {
   display: flex;
@@ -1117,6 +1142,11 @@ a:hover {
   }
   #event-box h3 {
     order: 2;
+  }
+  #event-box .event-box-excerpt {
+    width: 100%;
+    margin: 0;
+    padding: 3rem 0 3rem 0;
   }
 }
 #resources {
@@ -1205,7 +1235,7 @@ a:hover {
   justify-content: center;
   border: solid 2px #EB600B;
   border-radius: 10px;
-  width: 20%;
+  width: 20rem;
   padding: 2rem;
 }
 #login-page .buttons {
